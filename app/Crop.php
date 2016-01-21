@@ -16,6 +16,6 @@
 		public $strSeason;
 		public $strFertilizer;
 		public $dblAmountOfFertilizer;
-		public $listTask = array();
+		public $listTask = new Array();
 
 	}//end class Crop
