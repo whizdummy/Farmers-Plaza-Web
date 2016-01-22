@@ -13,5 +13,5 @@ use Parse\ParseObject;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return views('index');
 });
