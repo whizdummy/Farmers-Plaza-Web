@@ -69,7 +69,13 @@
 				foreach ($crop->listTask as $task) {
 					
 					$queryTaskCategory->equalTo("taskCatDesc", $task->strTaskName);
+
 					$taskCategory = $queryTaskCategory->first();
+					if ($queryTaskCategory->count() == 0){
+						$parseTaskCategory = new ParseObject("TaskCategory");
+						$parseTaskCategory->set("taskCatDesc", $crop->strTaskName);
+						$parseTaskCategory->save();
+					}//end if()
 					$parseTask->set("taskCategory", $taskCategory);
 					$parseTask->set("taskDesc", $task->strTaskDesc);
 					$parseTask->set("taskDuration", $task->intTaskDuration);
