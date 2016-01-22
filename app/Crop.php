@@ -1,7 +1,6 @@
 <?php
 
 	class Crop{
-
 		public $strCropName;
 		public $strCropType;
 		public $dblMinPh;
@@ -16,6 +15,5 @@
 		public $strSeason;
 		public $strFertilizer;
 		public $dblAmountOfFertilizer;
-		public $listTask = new Array();
-
+		public $listTask = array();
 	}//end class Crop

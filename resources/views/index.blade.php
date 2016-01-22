@@ -6,14 +6,14 @@
   <title>Farm2D</title>
 
   <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" type="text/css" href="{!!URL::asset('css/materialize.css')!!}" media="screen,projection">
+  <link rel="stylesheet" type="text/css" href="{!!URL::asset('css/style.css')!!}" media="screen,projection">
 
   <div class="navbar">
     <nav class="white">
       <div class="nav-wrapper" >
-      <img src="./pictures/navIcon.png">
+      <img src="{!! URL::asset('pictures/navIcon.png') !!}">
         <ul class="right hide-on-med-and-down" align="middle">
         <li><a href="#" class="green-text">ABOUT</a></li>
         <li><a href="#" class="green-text">SIGN UP</a></li>
@@ -36,7 +36,7 @@
   <div id="index-banner" class="parallax-container section scrollspy">
     <div class="row" style="margin-top: 10px;">
       <div class="col s12" align="middle">
-        <img src="./pictures/logo.png" width="400" height="400"><br>
+        <img src="{{URL::asset('pictures/logo.png')}}" width="400" height="400"><br>
         <h1 class="white-text thin">Farm2D</h1>
         <h4 class="white-text light center" >Farm Management System with 2D Mapping</h4>
         <div class="row">
@@ -86,7 +86,7 @@
 
             </aside>
     </div>  
-     <div class="parallax"><img src="./pictures/background1.jpg" alt="Unsplashed background img 1"></div>
+     <div class="parallax"><img src="{!! URL::asset('pictures/background1.jpg') !!}" alt="Unsplashed background img 1"></div>
   </div>
 
 
@@ -115,18 +115,18 @@
         </div>
         <div class="row">
           <div class="col s4 center">
-              <img src="./pictures/ic1.png" align="center" class="center" width="100" height="90">
+              <img src="{!! URL::asset('pictures/ic1.png') !!}" align="center" class="center" width="100" height="90">
               <h5 class="center thin">Chefs, Sous Chefs, Commis, Dishwashers,  Bakers and Pastry Chefs</h5>
           </div>
 
           <div class="col s4 center">
-              <img src="./pictures/ic2.png" align="center" class="center" width="100" height="100">
+              <img src="{!! URL::asset('pictures/ic2.png') !!}" align="center" class="center" width="100" height="100">
               <h5 class="center thin">Maitre d', Head Waiters, Runners, Bus Boys
 and Dining Room Professionals</h5>
           </div>
 
           <div class="col s4 center">         
-              <img src="./pictures/ic3.png" align="center" class="center" width="100" height="100">
+              <img src="{!! URL::asset('pictures/ic3.png') !!}" align="center" class="center" width="100" height="100">
               <h5 class="center thin">Happy Bar Keepers, Drink Mixologists,
 Bar DJs and Baristas</h5>
           </div>
@@ -134,21 +134,21 @@ Bar DJs and Baristas</h5>
 
         <div class="row">
           <div class="col s4 center">
-              <img src="./pictures/ic4.png" align="center" class="center" width="100" height="100">
+              <img src="{!! URL::asset('pictures/ic4.png') !!}" align="center" class="center" width="100" height="100">
               <h5 class="center thin">Sommeliers, Wine Waiters
 
 and Field Experts</h5>
           </div>
 
           <div class="col s4 center">
-              <img src="./pictures/ic5.png" align="center" class="center" width="100" height="100">
+              <img src="{!! URL::asset('pictures/ic5.png') !!}" align="center" class="center" width="100" height="100">
               <h5 class="center thin">Bosses, Managers, Owners, Chef Patrons
 
 and industry related businesses</h5>
           </div>
 
           <div class="col s4 center">         
-              <img src="./pictures/ic6.png" align="center" class="center" width="100" height="100">
+              <img src="{!! URL::asset('pictures/ic6.png') !!}}" align="center" class="center" width="100" height="100">
               <h5 class="center thin">Catering, Suppliers, Food Trucks,
 
 Importers and Associates</h5>
@@ -156,7 +156,7 @@ Importers and Associates</h5>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="./pictures/background2.jpg" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img src="{!! URL::asset('pictures/background2.jpg') !!}" alt="Unsplashed background img 2"></div>
   </div>
 
   <div class="container">
@@ -184,12 +184,12 @@ Importers and Associates</h5>
         <div class="row center">
           <h3 class="header col s12 light">Responsive Cross-Browser Compatibility</h3>
           <div class="center" align="center">
-            <img src="./pictures/devices.png" width="50%" height="50%">
+            <img src="{!! URL::asset('pictures/devices.png') !!}" width="50%" height="50%">
           </div>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="./pictures/background3.jpg" alt="Unsplashed background img 3"></div>
+    <div class="parallax"><img src="{!! URL::asset('pictures/background3.jpg') !!}" alt="Unsplashed background img 3"></div>
   </div>
 
 
@@ -273,8 +273,8 @@ Importers and Associates</h5>
   </style>
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="./js/materialize.js"></script>
-  <script src="./js/init.js"></script>
+  <script src="{!! URL::asset('js/materialize.js') !!}"></script>
+  <script src="{!! URL::asset('js/init.js') !!}"></script>
   
   </body>
   <footer class="footer page-footer green darken-4">
