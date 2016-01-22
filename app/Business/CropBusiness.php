@@ -3,7 +3,7 @@
 	use app\Dal\CropDao;
 	class CropBusiness{
 
-		public function CropBusiness(){
+		public function __construct() {
 			$cropDao = new CropDao();
 		}//end public function CropBusiness()
 
