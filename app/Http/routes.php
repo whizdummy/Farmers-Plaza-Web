@@ -12,6 +12,4 @@ use Parse\ParseObject;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PageController@index');
