@@ -25,14 +25,29 @@
 				
 				//getting crop type
 				$queryCropType->equalTo("cropTypeDesc", $crop->strCropType);
+				if ($queryCrop->count() == 0){
+					$parseCropType = new ParseObject("TaskCategory");
+					$parseCropType->set("taskCatDesc", $crop->strCropType);
+					$parseCropType->save();
+				}
 				$cropType = $queryCropType->first();
 
 				//getting season
 				$querySeason->equalTo("seasonDesc", $crop->strSeason);
+				if ($querySeason->count() == 0){
+					$parseSeason = new ParseObject("Season");
+					$parseSeason->set("seasonDesc", $crop->strSeason);
+					$parseSeason->save();
+				}
 				$season = $querySeason->first();
 
 				//getting fertilizer
 				$queryFertilizer->equalTo("fertilizerDesc", $crop->strFertilizer);
+				if ($queryFertilizer->count() == 0){
+					$parseFertilizer = new ParseObject("Fertilizer");
+					$parseFertilizer->set("fertilizerDesc", $crop->strSeason);
+					$parseFertilizer->save();
+				}
 				$fertilizer = $queryFertilizer->first();
 
 				$parseCrop->set("cropName", $crop->strCropName);
