@@ -17,3 +17,5 @@ Route::get('/', function() {
 	return view('maintenance');
 });
 Route::get('/maintenance', 'PageController@maintenance');
+
+Route::post('/submitForm', 'PageController@submitForm');

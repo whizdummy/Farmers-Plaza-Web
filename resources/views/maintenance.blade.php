@@ -5,10 +5,11 @@
 		    <article class="main white mainArticle"> <!--START OF MAIN-->    
 		      <div class="row container">   
 		      	  <h4 class="center green-text text-darken-4">Maintenance</h4>      
-		          <form action="google.com" class="col s12">
+		          <form action="/submitForm" method="POST" class="col s12">
+		          		<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 		                <div class="row" id="cropParent">
 							<div class="input-field col s6" id="cropSelect">
-								<select>
+								<select name="cropType">
 									<option value="" disabled selected>Choose your option</option>
 									<option value="1">Option 1</option>
 									<option value="2">Option 2</option>
@@ -34,12 +35,12 @@
 		                <div class="row">
 		                	<h5 class="s12 center">PH</h5>
 		                	<div class="input-field col s6">
-					          <input id="minPH" type="text" class="validate">
+					          <input id="minPH" type="text" class="validate" name="minPh">
 					          <label for="minPH">Minimum PH</label>
 					        </div>
 
 					        <div class="input-field col s6">
-					          <input id="maxPH" type="text" class="validate">
+					          <input id="maxPH" type="text" class="validate" name="maxPh">
 					          <label for="maxPH">Maximum PH</label>
 					        </div>
 		                </div>
@@ -47,12 +48,12 @@
 		                <div class="row">
 		                	<h5 class="s12 center">Sunlight</h5>
 		                	<div class="input-field col s6">
-					          <input id="minSunlight" type="text" class="validate">
+					          <input id="minSunlight" type="text" class="validate" name="minSunlight">
 					          <label for="minSunlight">Minimum Sunlight</label>
 					        </div>
 
 					        <div class="input-field col s6">
-					          <input id="maxSunlight" type="text" class="validate">
+					          <input id="maxSunlight" type="text" class="validate" name="maxSunlight">
 					          <label for="maxSunlight">Maximum Sunlight</label>
 					        </div>
 		                </div>
@@ -60,12 +61,12 @@
 		                <div class="row">
 		                	<h5 class="s12 center">Moisture</h5>
 		                	<div class="input-field col s6">
-					          <input id="minMoisture" type="text" class="validate">
+					          <input id="minMoisture" type="text" class="validate" name="minMoisture">
 					          <label for="minMoisture">Minimum Moisture</label>
 					        </div>
 
 					        <div class="input-field col s6">
-					          <input id="maxMoisture" type="text" class="validate">
+					          <input id="maxMoisture" type="text" class="validate" name="maxMoisture">
 					          <label for="maxMoisture">Maximum Moisture</label>
 					        </div>
 		                </div>
@@ -73,12 +74,12 @@
 		                <div class="row">
 		                	<h5 class="s12 center">Temperature</h5>
 		                	<div class="input-field col s6">
-					          <input id="minTemp" type="text" class="validate">
+					          <input id="minTemp" type="text" class="validate" name="minTemp">
 					          <label for="minTemp">Minimum Temperature</label>
 					        </div>
 
 					        <div class="input-field col s6">
-					          <input id="maxTemp" type="text" class="validate">
+					          <input id="maxTemp" type="text" class="validate" name="maxTemp">
 					          <label for="maxTemp">Maximum Temperature</label>
 					        </div>
 		                </div>
@@ -86,7 +87,7 @@
 		                <div class="row">
 		                	<h5 class="s12 center">Planting Distance(sq. meter)</h5>
 		                	<div class="input-field col s12">
-					          <input id="plantDist" type="text" class="validate">
+					          <input id="plantDist" type="text" class="validate" name="plantDist">
 					          <label for="plantDist">Planting Distance</label>
 					        </div>
 		                </div>
@@ -94,7 +95,7 @@
 		                <div class="row">
 		                	<h5 class="s12 center">Season of the Month</h5>
 		                	<div class="input-field col s6" id="cropSelect">
-								<select>
+								<select name="season">
 									<option value="" disabled selected>Choose your option</option>
 									<option value="1">Dry</option>
 									<option value="2">Wet</option>
@@ -106,7 +107,7 @@
 		                <div class="row" id="fertParent">
 		                	<h5 class="s12 center">Fertilizer</h5>
 		                	<div class="input-field col s6" id="fertSelect">
-								<select>
+								<select name="fertSelect">
 									<option value="" disabled selected>Choose your option</option>
 									<option value="1">Dry</option>
 									<option value="2">Wet</option>
@@ -128,7 +129,7 @@
 		                 <div class="row">
 		                	<h5 class="s12 center">Fertilizer Amount</h5>
 		                	<div class="input-field col s12">
-					          <input id="fertAmt" type="text" class="validate">
+					          <input id="fertAmt" type="text" class="validate" name="fertAmts">
 					          <label for="fertAmt">Amount</label>
 					        </div>
 		                </div>
