@@ -43,6 +43,11 @@
                          <i class="material-icons right">send</i>
                        </button>
                     </div>
+                    <div class="row">
+                      <a class="btn waves-effect waves-light" href="#">SIGN UP
+                         <i class="material-icons right">send</i>
+                       </a>
+                    </div>
               </form>
           </div>
         </article>  <!--END OF MAIN--> 

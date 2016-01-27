@@ -23,14 +23,12 @@
  		    <img src="{!! URL::asset('pictures/navIcon.png') !!}">
  		      <ul class="right hide-on-med-and-down" align="middle">
  		      <li><a href="#" class="green-text">ABOUT</a></li>
- 		      <li><a href="#" class="green-text">SIGN UP</a></li>
  		      </ul>
  		    </div>
  		  </nav>
  		</div>
  	</head>
  	<body class="green darken-4">
- 		Ainan
  		@yield('mainBody')
  	</body>
 

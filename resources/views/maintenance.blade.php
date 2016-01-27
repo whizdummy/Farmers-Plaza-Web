@@ -1,10 +1,12 @@
 @extends('parent')
 @section('mainBody')
+
 		<div class="wrapper">
 		    <article class="main white mainArticle"> <!--START OF MAIN-->    
-		      <div class="row container">         
+		      <div class="row container">   
+		      	  <h4 class="center green-text text-darken-4">Maintenance</h4>      
 		          <form action="#" class="col s12">
-		                <div class="row">
+		                <div class="row" id="cropParent">
 							<div class="input-field col s6" id="cropSelect">
 								<select>
 									<option value="" disabled selected>Choose your option</option>
@@ -15,18 +17,15 @@
 								<label>Crop Type</label>
 							</div>
 
-							<script type="text/javascript">
-								$(document).ready(function() {
-								$('select').material_select();
-								});
-							</script>
+							<div class="newCropType input-field col s6" id="newCrop">
 
-							<p class="col s6">
-								<input type="checkbox" id="newCropType" />
-								<label for="newCropType">New Crop type?</label>
-							</p>
+							</div>
 
-							<div class="input-field col s12">
+							<div class="col s6">
+								<button class="btn waves-light" onclick="addElementCrop()">New Crop Type</button>
+							</div>
+
+							<div class="input-field col s12" id="before">
 					          <input id="cropName" type="text" class="validate">
 					          <label for="cropName">Crop Name</label>
 					        </div>
@@ -104,9 +103,9 @@
 							</div>
 		                </div>
 
-		                <div class="row">
+		                <div class="row" id="fertParent">
 		                	<h5 class="s12 center">Fertilizer</h5>
-		                	<div class="input-field col s6" id="cropSelect">
+		                	<div class="input-field col s6" id="fertSelect">
 								<select>
 									<option value="" disabled selected>Choose your option</option>
 									<option value="1">Dry</option>
@@ -114,7 +113,17 @@
 								</select>
 								<label>Fertilizer</label>
 							</div>
+
+							<div class="newFertType input-field col s6" id="newFert">
+
+							</div>
+
+							<div class="col s6">
+								<button class="btn waves-light" onclick="addElementFert()">New Fertilizer Type</button>
+							</div>
 		                </div>
+
+
 
 		                 <div class="row">
 		                	<h5 class="s12 center">Fertilizer Amount</h5>
@@ -124,36 +133,48 @@
 					        </div>
 		                </div>
 
+		                <div class="row">
+		                	<h5 class="s12 center"> Tasks</h5>
+		                	<span>No tasks yet</span>
+		                </div>
+
 						<div class="row">
-							<button onclick="myFunction()" class="btn waves-effect waves-light">Add Task</button>
+							<button data-target="modal1" class="btn modal-trigger">Add Task</button>
+						</div>
 
-							<script>
-							function myFunction() {
-
-								var addTask = document.createElement("div")
-								addTask.class("input-field col s12");
-
-							    var spcfcTaskTxt = document.createElement("input");
-							    spcfcTaskTxt.type = "text";
-							    spcfcTaskTxt.class = "validate";
-
-							    var taskDesc = document.createElement("input");
-							    taskDesc.type = "text";
-							    taskDesc.class = "validate";
-
-							    var taskDuration = document.createElement("input");
-							    taskDuration.type = "text";
-							    taskDuration.class = "validate";
-
-							    var btn = document.createElement("button");
-							    var t = document.createTextNode("CLICK ME");
-							    btn.appendChild(t);
-
-							    document.body.appendChild(btn);
-							    
-
-							}
-							</script>
+						<!-- Modal Structure -->
+						<div id="modal1" class="modal">
+						  <div class="modal-content">
+						    <h4 class="row center">Add a task</h4>
+						    <form action="#" class="col s12">
+						    	<div class="container">
+						    		<div class="row">
+						    			<div class="input-field col s6" id="taskCategory">
+						    				<select>
+						    					<option value="" disabled selected>Choose your option</option>
+						    					<option value="1">Option 1</option>
+						    					<option value="2">Option 2</option>
+						    					<option value="3">Option 3</option>
+						    				</select>
+						    				<label>Task Category</label>
+						    			</div>
+						    		</div>
+						    		<div class="row">
+					    		        <div class="input-field col s6">
+					    		          <input id="taskDescription" type="text" class="validate">
+					    		          <label for="taskDescription">Task Description</label>
+					    		        </div>
+					    		        <div class="input-field col s6">
+					    		          <input id="taskDuration" type="text" class="validate">
+					    		          <label for="taskDuration">Task Duration</label>
+					    		        </div>
+					    		     </div>
+						    	</div>
+						    	<div class="modal-footer">
+						    	  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" type="submit">Agree</a>
+						    	</div>
+						    </form>
+						  </div>
 						</div>
 
 		                <div class="row">
@@ -172,16 +193,56 @@
 		        </aside>
 		</div> 
 
+		<script type="text/javascript">
+			$(document).ready(function() {
+			$('select').material_select();
+			});
+		</script>
+
 
 		<script type="text/javascript">
-		// Checkbox behaviour
-			if(document.getElementById('newCropType').checked){
-				var cropSelect = document.getElementById("cropSelect");
-				var newCropText = document.createElement("input");
-				newCropText.type = "text";
-				cropSelect.parentNode.replaceChild(newCropText, cropSelect);
-			}
-			   	
+		// btnAddNewCrop behaviour
+		function addElementCrop() { 
+		  var newDiv = document.createElement("div"); 
+		  newDiv.class = "input-field col s6";
+		  var inpot = document.createElement("input");
+		  inpot.type = "text";
+		  inpot.class = "validate";
+		  inpot.id = "newcroptype";
+		  inpot.placeholder = "New Crop Type";
+		  newDiv.appendChild(inpot);
+		  var newcrop = document.getElementById("newCrop");
+
+		  var parent = document.getElementById("cropParent");
+		  var child = document.getElementById("cropSelect");
+		  parent.removeChild(child);
+		  newcrop.appendChild(newDiv);
+		}
+
+		function addElementFert() { 
+		  var newDiv2 = document.createElement("div"); 
+		  newDiv2.class = "input-field col s6";
+		  var inpot2 = document.createElement("input");
+		  inpot2.type = "text";
+		  inpot2.class = "validate";
+		  inpot2.id = "newferttype";
+		  inpot2.placeholder = "New Fertilizer Type";
+		  newDiv2.appendChild(inpot2);
+		  var newfert = document.getElementById("newFert");
+
+		  var parent2 = document.getElementById("fertParent");
+		  var child2 = document.getElementById("fertSelect");
+		  parent2.removeChild(child2);
+		  newfert.appendChild(newDiv2);
+		}
+
+		</script>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+			  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+			  $('.modal-trigger').leanModal();
+			});
 		</script>
 
 @endsection
