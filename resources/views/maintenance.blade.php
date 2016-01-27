@@ -148,8 +148,8 @@
 						    <h4 class="row center">Add a task</h4>
 						    <form action="#" class="col s12">
 						    	<div class="container">
-						    		<div class="row">
-						    			<div class="input-field col s6" id="taskCategory">
+						    		<div class="row" id="parentTask">
+						    			<div class="input-field col s6" id="taskSelect">
 						    				<select>
 						    					<option value="" disabled selected>Choose your option</option>
 						    					<option value="1">Option 1</option>
@@ -157,6 +157,14 @@
 						    					<option value="3">Option 3</option>
 						    				</select>
 						    				<label>Task Category</label>
+						    			</div>
+
+						    			<div class="newCatType input-field col s6" id="newTask">
+
+						    			</div>
+
+						    			<div class="col s6">
+						    				<button class="btn waves-light" onclick="addElementTaskCategory()">New Category Type</button>
 						    			</div>
 						    		</div>
 						    		<div class="row">
@@ -168,11 +176,15 @@
 					    		          <input id="taskDuration" type="text" class="validate">
 					    		          <label for="taskDuration">Task Duration</label>
 					    		        </div>
+
+					    		        
+
+					    		        <div class="modal-footer">
+					    		          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" type="submit">Agree</a>
+					    		        </div>
 					    		     </div>
 						    	</div>
-						    	<div class="modal-footer">
-						    	  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" type="submit">Agree</a>
-						    	</div>
+						    	
 						    </form>
 						  </div>
 						</div>
@@ -215,6 +227,7 @@
 
 		  var parent = document.getElementById("cropParent");
 		  var child = document.getElementById("cropSelect");
+
 		  parent.removeChild(child);
 		  newcrop.appendChild(newDiv);
 		}
@@ -234,6 +247,23 @@
 		  var child2 = document.getElementById("fertSelect");
 		  parent2.removeChild(child2);
 		  newfert.appendChild(newDiv2);
+		}
+
+		function addElementTaskCategory() { 
+		  var newDiv3 = document.createElement("div"); 
+		  newDiv3.class = "input-field col s6";
+		  var inpot3 = document.createElement("input");
+		  inpot3.type = "text";
+		  inpot3.class = "validate";
+		  inpot3.id = "newcarttype";
+		  inpot3.placeholder = "New Cartegory Type";
+		  newDiv3.appendChild(inpot3);
+		  var newtask = document.getElementById("newTask");
+
+		  var parent3 = document.getElementById("parentTask");
+		  var child3 = document.getElementById("taskSelect");
+		  parent3.removeChild(child3);
+		  newtask.appendChild(newDiv3);
 		}
 
 		</script>
