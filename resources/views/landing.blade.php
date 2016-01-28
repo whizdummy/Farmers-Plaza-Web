@@ -128,20 +128,4 @@
     <div class="parallax"><img src="{!! URL::asset('pictures/background3.jpg') !!}" alt="Unsplashed background img 3"></div>
   </div>
 @endsection
-
-     <div class="col hide-on-small-only m3 l2" style="position: fixed;">
-        <ul class="section table-of-contents">
-          <li><a href="#index-banner">Home</a></li>
-          <li><a href="#ourWorld">Our World</a></li>
-          <li><a href="#madeFor">Made for</a></li>
-          <li><a href="#cross">Cross Platform</a></li>
-        </ul>
-     </div>
-
-   
-  <script type="text/javascript">
-    $(document).ready(function(){
-       $('.scrollspy').scrollSpy();
-     });
-  </script>
  

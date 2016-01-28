@@ -5,7 +5,7 @@
 		    <article class="main white mainArticle"> <!--START OF MAIN-->    
 		      <div class="row container">   
 		      	  <h4 class="center green-text text-darken-4">Maintenance</h4>      
-		          <form action="#" class="col s12">
+		          <form action="google.com" class="col s12">
 		                <div class="row" id="cropParent">
 							<div class="input-field col s6" id="cropSelect">
 								<select>
@@ -142,52 +142,7 @@
 							<button data-target="modal1" class="btn modal-trigger">Add Task</button>
 						</div>
 
-						<!-- Modal Structure -->
-						<div id="modal1" class="modal">
-						  <div class="modal-content">
-						    <h4 class="row center">Add a task</h4>
-						    <form action="#" class="col s12">
-						    	<div class="container">
-						    		<div class="row" id="parentTask">
-						    			<div class="input-field col s6" id="taskSelect">
-						    				<select>
-						    					<option value="" disabled selected>Choose your option</option>
-						    					<option value="1">Option 1</option>
-						    					<option value="2">Option 2</option>
-						    					<option value="3">Option 3</option>
-						    				</select>
-						    				<label>Task Category</label>
-						    			</div>
-
-						    			<div class="newCatType input-field col s6" id="newTask">
-
-						    			</div>
-
-						    			<div class="col s6">
-						    				<button class="btn waves-light" onclick="addElementTaskCategory()">New Category Type</button>
-						    			</div>
-						    		</div>
-						    		<div class="row">
-					    		        <div class="input-field col s6">
-					    		          <input id="taskDescription" type="text" class="validate">
-					    		          <label for="taskDescription">Task Description</label>
-					    		        </div>
-					    		        <div class="input-field col s6">
-					    		          <input id="taskDuration" type="text" class="validate">
-					    		          <label for="taskDuration">Task Duration</label>
-					    		        </div>
-
-					    		        
-
-					    		        <div class="modal-footer">
-					    		          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" type="submit">Agree</a>
-					    		        </div>
-					    		     </div>
-						    	</div>
-						    	
-						    </form>
-						  </div>
-						</div>
+						
 
 		                <div class="row">
 		                  <button class="btn waves-effect waves-light" type="submit" name="action">SUBMIT
@@ -203,6 +158,53 @@
 		        <aside class="aside aside-2">
 
 		        </aside>
+
+		     	<!-- Modal Structure -->
+		     	<div id="modal1" class="modal">
+		     	  <div class="modal-content">
+		     	    <h4 class="row center">Add a task</h4>
+		     	    <form action="#" class="col s12">
+		     	    	<div class="container">
+		     	    		<div class="row" id="parentTask">
+		     	    			<div class="input-field col s6" id="taskSelect">
+		     	    				<select>
+		     	    					<option value="" disabled selected>Choose your option</option>
+		     	    					<option value="1">Option 1</option>
+		     	    					<option value="2">Option 2</option>
+		     	    					<option value="3">Option 3</option>
+		     	    				</select>
+		     	    				<label>Task Category</label>
+		     	    			</div>
+
+		     	    			<div class="newCatType input-field col s6" id="newTask">
+
+		     	    			</div>
+
+		     	    			<div class="col s6">
+		     	    				<button class="btn waves-light" onclick="addElementTaskCategory()">New Category Type</button>
+		     	    			</div>
+		     	    		</div>
+		     	    		<div class="row">
+		         		        <div class="input-field col s6">
+		         		          <input id="taskDescription" type="text" class="validate">
+		         		          <label for="taskDescription">Task Description</label>
+		         		        </div>
+		         		        <div class="input-field col s6">
+		         		          <input id="taskDuration" type="text" class="validate">
+		         		          <label for="taskDuration">Task Duration</label>
+		         		        </div>
+
+		         		        
+
+		         		        <div class="modal-footer">
+		         		          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" type="submit">Agree</a>
+		         		        </div>
+		         		     </div>
+		     	    	</div>
+		     	    	
+		     	    </form>
+		     	  </div>
+		     	</div>
 		</div> 
 
 		<script type="text/javascript">

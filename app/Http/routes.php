@@ -14,6 +14,6 @@ use Parse\ParseObject;
 
 // Route::get('/', 'PageController@index');
 Route::get('/', function() {
-	return view('landing');
+	return view('maintenance');
 });
 Route::get('/maintenance', 'PageController@maintenance');
