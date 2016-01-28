@@ -20,7 +20,7 @@ return [
     |
     */
 
-    'app_id' => 'hbt4JEmtcJ2wBYSL289AgeMcN1KtruvUpZkm81l7',
+    'app_id' => 'Zx5nOBNT55zZIMv3dvMg29a0r3un1zae5hET9FBw',
 
     /*
     |--------------------------------------------------------------------------
@@ -31,7 +31,7 @@ return [
     |
     */
 
-    'rest_key' => 'ncoKF7sKJNa9TZDui81xE2q0qErK39b7ou5okbVS',
+    'rest_key' => 'sZMQtbybdPQDIrOfdDJbRUHgM1T6Xv246JMBFFgP',
 
     /*
     |--------------------------------------------------------------------------
