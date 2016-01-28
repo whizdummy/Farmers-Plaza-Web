@@ -243,6 +243,7 @@
 		  inpot2.type = "text";
 		  inpot2.class = "validate";
 		  inpot2.id = "newferttype";
+		  inpot2.name = "newferttype";
 		  inpot2.placeholder = "New Fertilizer Type";
 		  newDiv2.appendChild(inpot2);
 		  var newfert = document.getElementById("newFert");
@@ -260,6 +261,7 @@
 		  inpot3.type = "text";
 		  inpot3.class = "validate";
 		  inpot3.id = "newcarttype";
+		  inpot3.name = "newcarttype";
 		  inpot3.placeholder = "New Cartegory Type";
 		  newDiv3.appendChild(inpot3);
 		  var newtask = document.getElementById("newTask");
