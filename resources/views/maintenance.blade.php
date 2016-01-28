@@ -224,6 +224,7 @@
 		  inpot.type = "text";
 		  inpot.class = "validate";
 		  inpot.id = "newcroptype";
+		  inpot.name = "newcroptype";
 		  inpot.placeholder = "New Crop Type";
 		  newDiv.appendChild(inpot);
 		  var newcrop = document.getElementById("newCrop");

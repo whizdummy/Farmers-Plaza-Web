@@ -112,8 +112,8 @@ public $strCropName;
         
         $queryCropType = new ParseQuery("CropType");
         $queryCropType->equalTo("cropTypeDesc", $cropTypeVar);
-        $cropType = $queryCropType->first();
-        $parseCrop->set("cropType", $cropType);
+        $cropType = $queryCropType->find();
+        $parseCrop->set("cropType", $cropType[0]);
 
         $queryFertilizer = new ParseQuery("Fertilizer");
         $queryFertilizer->equalTo("fertilizerDesc", $fertTypeVar);
