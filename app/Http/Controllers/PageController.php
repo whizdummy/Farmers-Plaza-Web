@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Crop;
-use App\Business\CropBusiness;
+use Parse\ParseObject;
+use Parse\ParseQuery;
 
 use Illuminate\Http\Request;
 
@@ -18,9 +18,6 @@ class PageController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public $crop;
-    public $cropBusiness
-
     public function index()
     {
         return view('index');
@@ -31,10 +28,9 @@ class PageController extends Controller
     }
 
     public function submitForm(Request $request){
-        $this->crop = new Crop();
-        $this->cropBusiness = new CropBusiness();
-
-        $crop->strCropType = $request->input('cropType');
+        
+        $parseCrop = new ParseObject("Crop");
+        /*$crop->strCropType = $request->input('cropType');
         $crop->strCropName = $request->input('cropName');
         $crop->dblMinPh = $request->input('minPh');
         $crop->dblMaxPh = $request->input('maxPh');
@@ -50,7 +46,22 @@ class PageController extends Controller
         $crop->$dblAmountOfFertilizer = $request->input('fertAmt');
         //$crop->$listTask = $request->input('listTask');               //how listTask? how array?
         
-        $status = $this->cropBusiness(this->crop);
+public $strCropName;
+        public $strCropType;
+        public $dblMinPh;
+        public $dblMaxPh;
+        public $dblMinSunlight;
+        public $dblMaxSunlight;
+        public $dblMinMoisture;
+        public $dblMaxMoisture;
+        public $dblMinTemp;
+        public $dblMaxTemp;
+        public $dblPlantingDistance;
+        public $strSeason;
+        public $strFertilizer;
+        public $dblAmountOfFertilizer;
+
+        $status = $this->cropBusiness($this->crop);
         
         if ($status == "error-validation"){
 
@@ -60,6 +71,52 @@ class PageController extends Controller
         }
         else if ($status == "success"){
             
+        }*/
+
+        $parseCrop->set("cropName",  $request->input('cropName'));
+        $parseCrop->set("minPh", $request->input('minPh'));
+        $parseCrop->set("maxPh", $request->input('maxPh'));
+        $parseCrop->set("minMoisture", $request->input('minMoisture'));
+        $parseCrop->set("maxMoisture", $request->input('maxMoisture'));
+        $parseCrop->set("minSunlight", $request->input('minSunlight'));
+        $parseCrop->set("maxSunlight", $request->input('maxSunlight'));
+        $parseCrop->set("minTemp", $request->input('minTemp'));
+        $parseCrop->set("maxTemp", $request->input('maxTemp'));
+        $parseCrop->set("plantingDistance", $request->input('plantingDist'));
+        $parseCrop->set("fertilizerAmount", $request->input('fertAmt'));
+
+        $queryCropType = new ParseQuery("CropType");
+        $queryCropType->equalTo("cropTypeDesc", $crop->strCropType);
+        if ($queryCrop->count() == 0){
+            $parseCropType = new ParseObject("TaskCategory");
+            $parseCropType->set("taskCatDesc", $crop->strCropType);
+            $parseCropType->save();
         }
+        $cropType = $queryCropType->first();
+        $parseCrop->set("cropType", $cropType);
+
+        $querySeason = new ParseQuery("Season");
+        $querySeason->equalTo("seasonDesc", $crop->strSeason);
+        if ($querySeason->count() == 0){
+            $parseSeason = new ParseObject("Season");
+            $parseSeason->set("seasonDesc", $crop->strSeason);
+            $parseSeason->save();
+        }
+        $season = $querySeason->first();
+        $parseCrop->set("season", $season);
+
+        $queryFertilizer = new ParseQuery("Fertilizer");
+        $queryFertilizer->equalTo("fertilizerDesc", $request->input('fertSelect'));
+        if ($queryFertilizer->count() == 0){
+            $parseFertilizer = new ParseObject("Fertilizer");
+            $parseFertilizer->set("fertilizerDesc", $crop->strSeason);
+            $parseFertilizer->save();
+        }
+        $fertilizer = $queryFertilizer->first();
+        $parseCrop->set("fertilizer", $fertilizer);
+
+        $parseCrop->save();
+        echo "SUCCESS";
+
     }
 }
