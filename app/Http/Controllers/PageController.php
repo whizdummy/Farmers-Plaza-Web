@@ -86,34 +86,36 @@ public $strCropName;
         $parseCrop->set("fertilizerAmount", $request->input('fertAmt'));
 
         $queryCropType = new ParseQuery("CropType");
-        $queryCropType->equalTo("cropTypeDesc", $crop->strCropType);
+        $queryCropType->equalTo("cropTypeDesc", $request->input('cropType'));
         if ($queryCrop->count() == 0){
             $parseCropType = new ParseObject("TaskCategory");
-            $parseCropType->set("taskCatDesc", $crop->strCropType);
+            $parseCropType->set("taskCatDesc", $request->input('cropType'));
             $parseCropType->save();
         }
         $cropType = $queryCropType->first();
-        $parseCrop->set("cropType", $cropType);
+        $parseCrop->set("cropType", $request->input('cropType'));
 
         $querySeason = new ParseQuery("Season");
-        $querySeason->equalTo("seasonDesc", $crop->strSeason);
+        $querySeason->equalTo("seasonDesc", $request->input('season'));
         if ($querySeason->count() == 0){
             $parseSeason = new ParseObject("Season");
-            $parseSeason->set("seasonDesc", $crop->strSeason);
+            $parseSeason->set("seasonDesc", $request->input('season'));
             $parseSeason->save();
         }
         $season = $querySeason->first();
-        $parseCrop->set("season", $season);
+        $parseCrop->set("season", $request->input('season'));
 
         $queryFertilizer = new ParseQuery("Fertilizer");
         $queryFertilizer->equalTo("fertilizerDesc", $request->input('fertSelect'));
         if ($queryFertilizer->count() == 0){
             $parseFertilizer = new ParseObject("Fertilizer");
-            $parseFertilizer->set("fertilizerDesc", $crop->strSeason);
+            $parseFertilizer->set("fertilizerDesc", $request->input('fertSelect'));
             $parseFertilizer->save();
         }
         $fertilizer = $queryFertilizer->first();
-        $parseCrop->set("fertilizer", $fertilizer);
+        $parseCrop->set("fertilizer", $request->input('fertSelect'));
+
+        //task insertion
 
         $parseCrop->save();
         echo "SUCCESS";
