@@ -23,7 +23,7 @@
 							</div>
 
 							<div class="col s6">
-								<button class="btn waves-light" onclick="addElementCrop()">New Crop Type</button>
+								<button type="button" class="btn waves-light" onclick="addElementCrop()">New Crop Type</button>
 							</div>
 
 							<div class="input-field col s12" id="before">
@@ -120,7 +120,7 @@
 							</div>
 
 							<div class="col s6">
-								<button class="btn waves-light" onclick="addElementFert()">New Fertilizer Type</button>
+								<button type="button" class="btn waves-light" onclick="addElementFert()">New Fertilizer Type</button>
 							</div>
 		                </div>
 
@@ -140,7 +140,7 @@
 		                </div>
 
 						<div class="row">
-							<button data-target="modal1" class="btn modal-trigger">Add Task</button>
+							<button type="button" data-target="modal1" class="btn modal-trigger">Add Task</button>
 						</div>
 
 						
