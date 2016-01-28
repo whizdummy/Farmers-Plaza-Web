@@ -182,7 +182,7 @@
 		     	    			</div>
 
 		     	    			<div class="col s6">
-		     	    				<button class="btn waves-light" onclick="addElementTaskCategory()">New Category Type</button>
+		     	    				<button type="button" class="btn waves-light" onclick="addElementTaskCategory()">New Category Type</button>
 		     	    			</div>
 		     	    		</div>
 		     	    		<div class="row">
