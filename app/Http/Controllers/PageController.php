@@ -25,10 +25,15 @@ class PageController extends Controller
     }
 
     public function maintenance(){
+        $results = array();
 
         $queryCropType = new ParseQuery("CropType");
         $queryCropType->select("cropTypeDesc");
-        $results = $queryCropType->find();
+        $results[0] = $queryCropType->find();
+
+        $queryFertilizer = new ParseQuery("Fertilizer");
+        $queryFertilizer->select("fertilizerDesc");
+        $results[1] = $queryFertilizer->find();
 
     	return view('maintenance')->with("results", $results);
     }

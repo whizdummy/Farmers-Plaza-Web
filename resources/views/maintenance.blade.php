@@ -101,12 +101,7 @@
 		                <div class="row" id="fertParent">
 		                	<h5 class="s12 center">Fertilizer</h5>
 		                	<div class="input-field col s6" id="fertSelect">
-								<select name="fertSelect">
-									<option value="" disabled selected>Choose your option</option>
-									<option value="1">Dry</option>
-									<option value="2">Wet</option>
-								</select>
-								<label>Fertilizer</label>
+		                			<?php outputFertilizer(); ?>
 							</div>
 
 							<div class="newFertType input-field col s6" id="newFert">
@@ -207,10 +202,19 @@
 			function outputSelectCropType(){
 				echo "<select name='cropType'>";
 				echo "<option value='' disabled selected>Choose your option</option>";
-				foreach ($results as $result => $cropTypeResult) {
+				foreach ($results[0] as $result => $cropTypeResult) {
 					echo "<option value='". $cropTypeResult ."'>". $cropTypeResult ."</option>";
 				}
 				echo "</select><label>Crop Type</label>";
+			}
+
+			function outputSelectCropType(){
+				echo "<select name='fertSelect'>";
+				echo "<option value='' disabled selected>Choose your option</option>";
+				foreach ($results[1] as $result => $cropFertResult) {
+					echo "<option value='". $cropFertResult ."'>". $cropFertResult ."</option>";
+				}
+				echo "</select><label>Fertilizer</label>";
 			}
 		?> 
 
