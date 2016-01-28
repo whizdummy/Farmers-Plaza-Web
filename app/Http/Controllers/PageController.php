@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Parse\ParseObject;
 use Parse\ParseQuery;
+use Parse\ParseUser;
 
 use Illuminate\Http\Request;
 
@@ -24,7 +25,12 @@ class PageController extends Controller
     }
 
     public function maintenance(){
-    	return view('maintenance');
+
+        $queryCropType = new ParseQuery("CropType");
+        $queryCropType->select("cropTypeDesc");
+        $results = $queryCropType->find();
+
+    	return view('maintenance')->with("results", $results);
     }
 
     public function submitForm(Request $request){
@@ -124,6 +130,19 @@ public $strCropName;
 
         $parseCrop->save();
         echo "SUCCESS";
+
+    }
+
+    public function verifyUser(Request $request){
+        $user = new ParseUser();
+
+        try{
+            $user = ParseUser::logIn($request->input('userName'), $request->input('userPass'));
+            return view('maintenance');
+        }
+        catch (ParseException $e){
+            return view('landing');
+        }
 
     }
 }

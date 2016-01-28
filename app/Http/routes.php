@@ -19,3 +19,5 @@ Route::get('/', function() {
 Route::get('/maintenance', 'PageController@maintenance');
 
 Route::post('/submitForm', 'PageController@submitForm');
+
+Route::post('/verifyUser', 'PageController@verifyUser');

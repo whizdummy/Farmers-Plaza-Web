@@ -9,13 +9,7 @@
 		          		<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 		                <div class="row" id="cropParent">
 							<div class="input-field col s6" id="cropSelect">
-								<select name="cropType">
-									<option value="" disabled selected>Choose your option</option>
-									<option value="1">Option 1</option>
-									<option value="2">Option 2</option>
-									<option value="3">Option 3</option>
-								</select>
-								<label>Crop Type</label>
+								<?php outputSelectCropType(); ?>
 							</div>
 
 							<div class="newCropType input-field col s6" id="newCrop">
@@ -206,7 +200,19 @@
 		     	    </form>
 		     	  </div>
 		     	</div>
-		</div> 
+		</div>
+
+		<?php
+
+			function outputSelectCropType(){
+				echo "<select name='cropType'>";
+				echo "<option value='' disabled selected>Choose your option</option>";
+				foreach ($results as $result => $cropTypeResult) {
+					echo "<option value='". $cropTypeResult ."'>". $cropTypeResult ."</option>";
+				}
+				echo "</select><label>Crop Type</label>";
+			}
+		?> 
 
 		<script type="text/javascript">
 			$(document).ready(function() {
