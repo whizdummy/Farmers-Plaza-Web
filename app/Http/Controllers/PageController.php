@@ -72,6 +72,30 @@ public $strCropName;
         else if ($status == "success"){
             
         }*/
+        $cropTypeVar = null;
+        $fertTypeVar = null;
+        $parseCropType = null;
+        $parseFertilizer = null;
+
+        if($request->input('newcroptype') == null || strcmp($request->input('newcroptype'), "") == 0){
+            $cropTypeVar = $request->input('cropType');
+        }
+        else {
+            $cropTypeVar = $request->input('newcroptype');
+            $parseCropType = new ParseObject("CropType");
+            $parseCropType->set("cropTypeDesc", $cropTypeVar);
+            $parseCropType->save();
+        }
+
+        if($request->input('newferttype') == null || strcmp($request->input('newferttype'), "") == 0){
+            $fertTypeVar = $request->input('fertSelect');
+        }
+        else {
+            $fertTypeVar = $request->input('newferttype');
+            $parseFertilizer = new ParseObject("Fertilizer");
+            $parseFertilizer->set("fertilizerDesc", $fertTypeVar);
+            $parseFertilizer->save();
+        }
 
         $parseCrop->set("cropName",  $request->input('cropName'));
         $parseCrop->set("minPh", $request->input('minPh'));
@@ -84,36 +108,17 @@ public $strCropName;
         $parseCrop->set("maxTemp", $request->input('maxTemp'));
         $parseCrop->set("plantingDistance", $request->input('plantingDist'));
         $parseCrop->set("fertilizerAmount", $request->input('fertAmt'));
-
-        $queryCropType = new ParseQuery("CropType");
-        $queryCropType->equalTo("cropTypeDesc", $request->input('cropType'));
-        if ($queryCrop->count() == 0){
-            $parseCropType = new ParseObject("TaskCategory");
-            $parseCropType->set("taskCatDesc", $request->input('cropType'));
-            $parseCropType->save();
-        }
-        $cropType = $queryCropType->first();
-        $parseCrop->set("cropType", $request->input('cropType'));
-
-        $querySeason = new ParseQuery("Season");
-        $querySeason->equalTo("seasonDesc", $request->input('season'));
-        if ($querySeason->count() == 0){
-            $parseSeason = new ParseObject("Season");
-            $parseSeason->set("seasonDesc", $request->input('season'));
-            $parseSeason->save();
-        }
-        $season = $querySeason->first();
         $parseCrop->set("season", $request->input('season'));
+        
+        $queryCropType = new ParseQuery("CropType");
+        $queryCropType->equalTo("cropTypeDesc", $cropTypeVar);
+        $cropType = $queryCropType->first();
+        $parseCrop->set("cropType", $cropType);
 
         $queryFertilizer = new ParseQuery("Fertilizer");
-        $queryFertilizer->equalTo("fertilizerDesc", $request->input('fertSelect'));
-        if ($queryFertilizer->count() == 0){
-            $parseFertilizer = new ParseObject("Fertilizer");
-            $parseFertilizer->set("fertilizerDesc", $request->input('fertSelect'));
-            $parseFertilizer->save();
-        }
+        $queryFertilizer->equalTo("fertilizerDesc", $fertTypeVar);
         $fertilizer = $queryFertilizer->first();
-        $parseCrop->set("fertilizer", $request->input('fertSelect'));
+        $parseCrop->set("fertilizer", $fertilizer);
 
         //task insertion
 
