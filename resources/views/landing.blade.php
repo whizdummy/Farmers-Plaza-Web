@@ -27,11 +27,13 @@
         <article class="main white"> <!--START OF MAIN-->    
           <div class="row container">         
               <form action="#" class="col s12">
+                    <h4 class="col s12 center green-text text-darken-4">Log In</h4>
                     <div class="row">
                       <div class="input-field col s6">
                         <input id="first_name" type="text" class="validate">
                         <label for="first_name">Username</label>
                       </div>
+
                       <div class="input-field col s6">
                         <input id="last_name" type="password" class="validate">
                         <label for="last_name">Password</label>
@@ -39,15 +41,18 @@
                     </div>
 
                     <div class="row">
-                      <button class="btn waves-effect waves-light" type="submit" name="action">LOG IN
+                      <div class="col s6">
+                        <a class="btn waves-effect waves-light" href="#">SIGN UP
+                           <i class="material-icons right">send</i>
+                         </a>
+                      </div>
+  
+                      <div class="col s6">
+                         <button class="btn waves-effect waves-light green" type="submit" name="action">LOG IN
                          <i class="material-icons right">send</i>
-                       </button>
-                    </div>
-                    <div class="row">
-                      <a class="btn waves-effect waves-light" href="#">SIGN UP
-                         <i class="material-icons right">send</i>
-                       </a>
-                    </div>
+                       </button>           
+                      </div>                      
+                    </div>                  
               </form>
           </div>
         </article>  <!--END OF MAIN--> 
@@ -65,15 +70,14 @@
   <div class="container">
     <div class="section scrollspy" id="ourWorld">
       <div class="row">
-      <h3 class="col s12 lime-text bold center" align="center">Check out our app in Play Store!</h3>
-        <div class="col s12">
-          <h5 class="white-text thin center" align="center">
-            Pictures here
-          </h5>
-          <h5 class="white-text thin center" align="center">Pictures here
-          </h5>
+      <h3 class="col s12 white-text bold center" align="center">Check out our app in Play Store!</h3>
+        <div class="col s12 center">
+          <img src="{!! URL::asset('pictures/mobPics.png') !!}" width="60%" height="50%">
         </div>
-        <a class="waves-effect waves-light btn-large"><i class="material-icons left">shop</i>Install now!</a>
+
+        <div class="col s12 center">
+           <a class="waves-effect waves-light btn-large center"><i class="material-icons left">shop</i>Install now!</a>
+        </div>
       </div>
     </div>
   </div>
@@ -83,49 +87,9 @@
     <div class="section no-pad-bot">
       <div class="container section scrollspy" id="madeFor">
         <div class="row center">
-          <h3 class="header col s12 bold white-text">Made for...</h3>
-        </div>
-        <div class="row">
-          <div class="col s4 center">
-              <img src="{!! URL::asset('pictures/ic1.png') !!}" align="center" class="center" width="100" height="90">
-              <h5 class="center thin">Chefs, Sous Chefs, Commis, Dishwashers,  Bakers and Pastry Chefs</h5>
-          </div>
-
-          <div class="col s4 center">
-              <img src="{!! URL::asset('pictures/ic2.png') !!}" align="center" class="center" width="100" height="100">
-              <h5 class="center thin">Maitre d', Head Waiters, Runners, Bus Boys
-and Dining Room Professionals</h5>
-          </div>
-
-          <div class="col s4 center">         
-              <img src="{!! URL::asset('pictures/ic3.png') !!}" align="center" class="center" width="100" height="100">
-              <h5 class="center thin">Happy Bar Keepers, Drink Mixologists,
-Bar DJs and Baristas</h5>
-          </div>
+          <h3 class="header col s12 bold white-text">Made with 2D Mapping</h3>
         </div>
 
-        <div class="row">
-          <div class="col s4 center">
-              <img src="{!! URL::asset('pictures/ic4.png') !!}" align="center" class="center" width="100" height="100">
-              <h5 class="center thin">Sommeliers, Wine Waiters
-
-and Field Experts</h5>
-          </div>
-
-          <div class="col s4 center">
-              <img src="{!! URL::asset('pictures/ic5.png') !!}" align="center" class="center" width="100" height="100">
-              <h5 class="center thin">Bosses, Managers, Owners, Chef Patrons
-
-and industry related businesses</h5>
-          </div>
-
-          <div class="col s4 center">         
-              <img src="{!! URL::asset('pictures/ic6.png') !!}}" align="center" class="center" width="100" height="100">
-              <h5 class="center thin">Catering, Suppliers, Food Trucks,
-
-Importers and Associates</h5>
-          </div>
-        </div>
       </div>
     </div>
     <div class="parallax"><img src="{!! URL::asset('pictures/background2.jpg') !!}" alt="Unsplashed background img 2"></div>
