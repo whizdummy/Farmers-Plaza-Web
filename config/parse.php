@@ -31,7 +31,7 @@ return [
     |
     */
 
-    'rest_key' => 'sZMQtbybdPQDIrOfdDJbRUHgM1T6Xv246JMBFFgP',
+    'rest_key' => '0Eepsftn2zmeYZLGB5Ooa7dK0N7F3l05wyCoBA9n',
 
     /*
     |--------------------------------------------------------------------------
@@ -42,6 +42,6 @@ return [
     |
     */
 
-    'master_key' => '6dmcdmVBHHXhuyCPZQ2cmtJu6ROV6ZvccLPAYu9b',
+    'master_key' => 'AZj4AmCQ0Xrs56gfIeHGcY6wSDyFAp2n6pndTjVh',
 
 ];

@@ -9,7 +9,12 @@
 		          		<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 		                <div class="row" id="cropParent">
 							<div class="input-field col s6" id="cropSelect">
-								<?php outputSelectCropType(); ?>
+								<select name='cropType'>
+								<option value='' disabled selected>Choose your option</option>
+								@foreach($results[0] as $result => $cropTypeResult)
+									<option value='{{$cropTypeResult}}'>{{$cropTypeResult}}</option>
+								@endforeach
+								</select><label>Crop Type</label>
 							</div>
 
 							<div class="newCropType input-field col s6" id="newCrop">
@@ -101,7 +106,12 @@
 		                <div class="row" id="fertParent">
 		                	<h5 class="s12 center">Fertilizer</h5>
 		                	<div class="input-field col s6" id="fertSelect">
-		                			<?php outputFertilizer(); ?>
+		                		<select name='fertSelect'>
+								<option value='' disabled selected>Choose your option</option>
+								@foreach($results[1] as $result => $cropFertResult)
+									<option value="{{$cropFertResult}}">"{{$cropFertResult}}</option>
+								@endforeach
+								</select><label>Fertilizer</label>
 							</div>
 
 							<div class="newFertType input-field col s6" id="newFert">
@@ -200,21 +210,21 @@
 		<?php
 
 			function outputSelectCropType(){
-				echo "<select name='cropType'>";
-				echo "<option value='' disabled selected>Choose your option</option>";
-				foreach ($results[0] as $result => $cropTypeResult) {
-					echo "<option value='". $cropTypeResult ."'>". $cropTypeResult ."</option>";
-				}
-				echo "</select><label>Crop Type</label>";
+				// echo "<select name='cropType'>";
+				// echo "<option value='' disabled selected>Choose your option</option>";
+				// foreach ($results[0] as $result => $cropTypeResult) {
+				// 	echo "<option value='". $cropTypeResult ."'>". $cropTypeResult ."</option>";
+				// }
+				// echo "</select><label>Crop Type</label>";
 			}
 
-			function outputSelectCropType(){
-				echo "<select name='fertSelect'>";
-				echo "<option value='' disabled selected>Choose your option</option>";
-				foreach ($results[1] as $result => $cropFertResult) {
-					echo "<option value='". $cropFertResult ."'>". $cropFertResult ."</option>";
-				}
-				echo "</select><label>Fertilizer</label>";
+			function outputSelectFertType(){
+				// echo "<select name='fertSelect'>";
+				// echo "<option value='' disabled selected>Choose your option</option>";
+				// foreach ($results[1] as $result => $cropFertResult) {
+				// 	echo "<option value='". $cropFertResult ."'>". $cropFertResult ."</option>";
+				// }
+				// echo "</select><label>Fertilizer</label>";
 			}
 		?> 
 

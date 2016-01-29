@@ -143,9 +143,9 @@ public $strCropName;
 
         try{
             $user = ParseUser::logIn($request->input('userName'), $request->input('userPass'));
-            return view('maintenance');
+            return redirect()->route('maintenance');
         }
-        catch (ParseException $e){
+        catch (ParseException $e) {
             return view('landing');
         }
 

@@ -26,7 +26,7 @@
     <div class="wrapper">
         <article class="main white"> <!--START OF MAIN-->    
           <div class="row container">         
-              <form action="/verifyUser" method="POST" class="col s12">
+              <form action="http://localhost:8000/verifyUser" method="POST" class="col s12">
                     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                     <h4 class="col s12 center green-text text-darken-4">Log In</h4>
                     <div class="row">
