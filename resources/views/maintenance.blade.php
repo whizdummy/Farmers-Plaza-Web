@@ -28,7 +28,8 @@
 							</div>
 
 							<div class="col s6">
-								<button class="btn waves-light" onclick="addElementCrop()">New Crop Type</button>
+								 <input id="newCropTxt" type="text" class="validate">
+					          <label for="newCropTxt">New Crop Type</label>
 							</div>
 
 							<div class="input-field col s12" id="before">
