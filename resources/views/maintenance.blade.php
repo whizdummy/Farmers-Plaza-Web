@@ -118,7 +118,7 @@
 		                		<select name='fertSelect'>
 								<option value='' disabled selected>Choose your option</option>
 								@foreach($results[1] as $result => $cropFertResult)
-									<option value="{{$cropFertResult}}">"{{$cropFertResult}}</option>
+									<option value="{{$cropFertResult}}">{{$cropFertResult}}</option>
 								@endforeach
 								</select><label>Fertilizer</label>
 							</div>
