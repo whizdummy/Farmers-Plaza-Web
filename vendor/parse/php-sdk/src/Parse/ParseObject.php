@@ -212,6 +212,16 @@ class ParseObject implements Encodable
     }
 
     /**
+     * Get values for all keys of an object.
+     *
+     * @return array
+     */
+    public function getAllKeys()
+    {
+        return $this->estimatedData;
+    }
+
+    /**
      * Check if the object has a given key.
      *
      * @param string $key Key to check
@@ -318,7 +328,7 @@ class ParseObject implements Encodable
                 'Must use set() for non-array values.'
             );
         }
-        $this->_performOperation($key, new SetOperation($value));
+        $this->_performOperation($key, new SetOperation(array_values($value)));
     }
 
     /**

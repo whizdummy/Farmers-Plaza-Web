@@ -5,8 +5,10 @@
 		    <article class="main white mainArticle"> <!--START OF MAIN-->    
 		      <div class="row container">   
 		      	  <h4 class="center green-text text-darken-4">Maintenance</h4>      
-		          <form action="google.com" class="col s12">
+		          <form action="/submitForm" method="POST" class="col s12">
+		          		<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 		                <div class="row" id="cropParent">
+
 		                	<div class="input-field col s6">
 		                		<p>
 		                		     <input name="group1" type="radio" id="test1"  onclick="document.getElementById('newCropTxt').disabled = true; document.getElementById('cropSelect').removeAttribute(disabled);"/>
@@ -17,20 +19,20 @@
 		                		     <label for="test2">New crop type</label>
 		                		   </p>
 		                	</div>
-							<div class="input-field col s6" >
-								<select id="cropSelect" disabled="disabled" name="cropSelect">
-									<option value="" disabled selected>Choose your option</option>
-									<option value="1">Option 1</option>
-									<option value="2">Option 2</option>
-									<option value="3">Option 3</option>
-								</select>
-								<label>Crop Type</label>
+
+							<div class="input-field col s6" id="cropSelect">
+								<select name='cropType' id="cropSelect">
+								<option value='' disabled selected>Choose your option</option>
+								@foreach($results[0] as $result => $cropTypeResult)
+									<option value='{{$cropTypeResult}}'>{{$cropTypeResult}}</option>
+								@endforeach
+								</select><label>Crop Type</label>
 							</div>
 
-							<div class="col s6">
-								 <input id="newCropTxt" type="text" class="validate">
+							<div class="input-field col s6">
+					          <input id="newCropTxt" type="text" class="validate" name="minPh">
 					          <label for="newCropTxt">New Crop Type</label>
-							</div>
+					        </div>
 
 							<div class="input-field col s12" id="before">
 					          <input id="cropName" type="text" class="validate">
@@ -41,12 +43,12 @@
 		                <div class="row">
 		                	<h5 class="s12 center">PH</h5>
 		                	<div class="input-field col s6">
-					          <input id="minPH" type="text" class="validate">
+					          <input id="minPH" type="text" class="validate" name="minPh">
 					          <label for="minPH">Minimum PH</label>
 					        </div>
 
 					        <div class="input-field col s6">
-					          <input id="maxPH" type="text" class="validate">
+					          <input id="maxPH" type="text" class="validate" name="maxPh">
 					          <label for="maxPH">Maximum PH</label>
 					        </div>
 		                </div>
@@ -54,12 +56,12 @@
 		                <div class="row">
 		                	<h5 class="s12 center">Sunlight</h5>
 		                	<div class="input-field col s6">
-					          <input id="minSunlight" type="text" class="validate">
+					          <input id="minSunlight" type="text" class="validate" name="minSunlight">
 					          <label for="minSunlight">Minimum Sunlight</label>
 					        </div>
 
 					        <div class="input-field col s6">
-					          <input id="maxSunlight" type="text" class="validate">
+					          <input id="maxSunlight" type="text" class="validate" name="maxSunlight">
 					          <label for="maxSunlight">Maximum Sunlight</label>
 					        </div>
 		                </div>
@@ -67,12 +69,12 @@
 		                <div class="row">
 		                	<h5 class="s12 center">Moisture</h5>
 		                	<div class="input-field col s6">
-					          <input id="minMoisture" type="text" class="validate">
+					          <input id="minMoisture" type="text" class="validate" name="minMoisture">
 					          <label for="minMoisture">Minimum Moisture</label>
 					        </div>
 
 					        <div class="input-field col s6">
-					          <input id="maxMoisture" type="text" class="validate">
+					          <input id="maxMoisture" type="text" class="validate" name="maxMoisture">
 					          <label for="maxMoisture">Maximum Moisture</label>
 					        </div>
 		                </div>
@@ -80,12 +82,12 @@
 		                <div class="row">
 		                	<h5 class="s12 center">Temperature</h5>
 		                	<div class="input-field col s6">
-					          <input id="minTemp" type="text" class="validate">
+					          <input id="minTemp" type="text" class="validate" name="minTemp">
 					          <label for="minTemp">Minimum Temperature</label>
 					        </div>
 
 					        <div class="input-field col s6">
-					          <input id="maxTemp" type="text" class="validate">
+					          <input id="maxTemp" type="text" class="validate" name="maxTemp">
 					          <label for="maxTemp">Maximum Temperature</label>
 					        </div>
 		                </div>
@@ -93,7 +95,7 @@
 		                <div class="row">
 		                	<h5 class="s12 center">Planting Distance(sq. meter)</h5>
 		                	<div class="input-field col s12">
-					          <input id="plantDist" type="text" class="validate">
+					          <input id="plantDist" type="text" class="validate" name="plantDist">
 					          <label for="plantDist">Planting Distance</label>
 					        </div>
 		                </div>
@@ -101,7 +103,7 @@
 		                <div class="row">
 		                	<h5 class="s12 center">Season of the Month</h5>
 		                	<div class="input-field col s6" id="cropSelect">
-								<select>
+								<select name="season">
 									<option value="" disabled selected>Choose your option</option>
 									<option value="1">Dry</option>
 									<option value="2">Wet</option>
@@ -113,12 +115,12 @@
 		                <div class="row" id="fertParent">
 		                	<h5 class="s12 center">Fertilizer</h5>
 		                	<div class="input-field col s6" id="fertSelect">
-								<select>
-									<option value="" disabled selected>Choose your option</option>
-									<option value="1">Dry</option>
-									<option value="2">Wet</option>
-								</select>
-								<label>Fertilizer</label>
+		                		<select name='fertSelect'>
+								<option value='' disabled selected>Choose your option</option>
+								@foreach($results[1] as $result => $cropFertResult)
+									<option value="{{$cropFertResult}}">"{{$cropFertResult}}</option>
+								@endforeach
+								</select><label>Fertilizer</label>
 							</div>
 
 							<div class="newFertType input-field col s6" id="newFert">
@@ -126,7 +128,7 @@
 							</div>
 
 							<div class="col s6">
-								<button class="btn waves-light" onclick="addElementFert()">New Fertilizer Type</button>
+								<button type="button" class="btn waves-light" onclick="addElementFert()">New Fertilizer Type</button>
 							</div>
 		                </div>
 
@@ -135,7 +137,7 @@
 		                 <div class="row">
 		                	<h5 class="s12 center">Fertilizer Amount</h5>
 		                	<div class="input-field col s12">
-					          <input id="fertAmt" type="text" class="validate">
+					          <input id="fertAmt" type="text" class="validate" name="fertAmts">
 					          <label for="fertAmt">Amount</label>
 					        </div>
 		                </div>
@@ -146,7 +148,7 @@
 		                </div>
 
 						<div class="row">
-							<button data-target="modal1" class="btn modal-trigger">Add Task</button>
+							<button type="button" data-target="modal1" class="btn modal-trigger">Add Task</button>
 						</div>
 
 						
@@ -188,7 +190,7 @@
 		     	    			</div>
 
 		     	    			<div class="col s6">
-		     	    				<button class="btn waves-light" onclick="addElementTaskCategory()">New Category Type</button>
+		     	    				<button type="button" class="btn waves-light" onclick="addElementTaskCategory()">New Category Type</button>
 		     	    			</div>
 		     	    		</div>
 		     	    		<div class="row">
@@ -212,7 +214,28 @@
 		     	    </form>
 		     	  </div>
 		     	</div>
-		</div> 
+		</div>
+
+		<?php
+
+			function outputSelectCropType(){
+				// echo "<select name='cropType'>";
+				// echo "<option value='' disabled selected>Choose your option</option>";
+				// foreach ($results[0] as $result => $cropTypeResult) {
+				// 	echo "<option value='". $cropTypeResult ."'>". $cropTypeResult ."</option>";
+				// }
+				// echo "</select><label>Crop Type</label>";
+			}
+
+			function outputSelectFertType(){
+				// echo "<select name='fertSelect'>";
+				// echo "<option value='' disabled selected>Choose your option</option>";
+				// foreach ($results[1] as $result => $cropFertResult) {
+				// 	echo "<option value='". $cropFertResult ."'>". $cropFertResult ."</option>";
+				// }
+				// echo "</select><label>Fertilizer</label>";
+			}
+		?> 
 
 		<script type="text/javascript">
 			$(document).ready(function() {
@@ -230,6 +253,7 @@
 		  inpot.type = "text";
 		  inpot.class = "validate";
 		  inpot.id = "newcroptype";
+		  inpot.name = "newcroptype";
 		  inpot.placeholder = "New Crop Type";
 		  newDiv.appendChild(inpot);
 		  var newcrop = document.getElementById("newCrop");
@@ -248,6 +272,7 @@
 		  inpot2.type = "text";
 		  inpot2.class = "validate";
 		  inpot2.id = "newferttype";
+		  inpot2.name = "newferttype";
 		  inpot2.placeholder = "New Fertilizer Type";
 		  newDiv2.appendChild(inpot2);
 		  var newfert = document.getElementById("newFert");
@@ -265,6 +290,7 @@
 		  inpot3.type = "text";
 		  inpot3.class = "validate";
 		  inpot3.id = "newcarttype";
+		  inpot3.name = "newcarttype";
 		  inpot3.placeholder = "New Cartegory Type";
 		  newDiv3.appendChild(inpot3);
 		  var newtask = document.getElementById("newTask");

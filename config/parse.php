@@ -20,7 +20,7 @@ return [
     |
     */
 
-    'app_id' => 'hbt4JEmtcJ2wBYSL289AgeMcN1KtruvUpZkm81l7',
+    'app_id' => 'Zx5nOBNT55zZIMv3dvMg29a0r3un1zae5hET9FBw',
 
     /*
     |--------------------------------------------------------------------------
@@ -31,7 +31,7 @@ return [
     |
     */
 
-    'rest_key' => 'ncoKF7sKJNa9TZDui81xE2q0qErK39b7ou5okbVS',
+    'rest_key' => '0Eepsftn2zmeYZLGB5Ooa7dK0N7F3l05wyCoBA9n',
 
     /*
     |--------------------------------------------------------------------------
@@ -42,6 +42,6 @@ return [
     |
     */
 
-    'master_key' => '6dmcdmVBHHXhuyCPZQ2cmtJu6ROV6ZvccLPAYu9b',
+    'master_key' => 'AZj4AmCQ0Xrs56gfIeHGcY6wSDyFAp2n6pndTjVh',
 
 ];

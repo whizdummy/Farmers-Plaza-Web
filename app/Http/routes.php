@@ -14,6 +14,18 @@ use Parse\ParseObject;
 
 // Route::get('/', 'PageController@index');
 Route::get('/', function() {
-	return view('maintenance');
+	return view('landing');
 });
-Route::get('/maintenance', 'PageController@maintenance');
+Route::get('/maintenance', ['as'=>'maintenance', 'uses'=>'PageController@maintenance']);
+
+Route::get('/tasks', 'PageController@tasks');
+
+Route::post('/submitForm', 'PageController@submitForm');
+
+Route::post('/verifyUser', 'PageController@verifyUser');
+
+Route::post('/addTaskCategory', 'PageController@addTaskCategory');
+
+Route::post('/addTask', 'PageController@addTask');
+
+Route::post('/assignTask', 'PageController@assignTask');
