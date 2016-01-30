@@ -7,18 +7,24 @@
 		      	  <h4 class="center green-text text-darken-4">Maintenance</h4>      
 		          <form action="google.com" class="col s12">
 		                <div class="row" id="cropParent">
-							<div class="input-field col s6" id="cropSelect">
-								<select>
+		                	<div class="input-field col s6">
+		                		<p>
+		                		     <input name="group1" type="radio" id="test1"  onclick="document.getElementById('newCropTxt').disabled = true; document.getElementById('cropSelect').removeAttribute(disabled);"/>
+		                		     <label for="test1">Choose crop type</label>
+		                		   </p>
+		                		   <p>
+		                		     <input name="group1" type="radio" id="test2"  onclick="document.getElementById('cropSelect').disabled = true; document.getElementById('newCropTxt').disabled = false;"/>
+		                		     <label for="test2">New crop type</label>
+		                		   </p>
+		                	</div>
+							<div class="input-field col s6" >
+								<select id="cropSelect" disabled="disabled" name="cropSelect">
 									<option value="" disabled selected>Choose your option</option>
 									<option value="1">Option 1</option>
 									<option value="2">Option 2</option>
 									<option value="3">Option 3</option>
 								</select>
 								<label>Crop Type</label>
-							</div>
-
-							<div class="newCropType input-field col s6" id="newCrop">
-
 							</div>
 
 							<div class="col s6">
