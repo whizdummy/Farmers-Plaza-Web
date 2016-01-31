@@ -16,6 +16,9 @@ use Parse\ParseObject;
 Route::get('/', function() {
 	return view('landing');
 });
+
+Route::get('/logOut', 'PageController@logOut');
+
 Route::get('/maintenance', ['middleware' => 'agri', 'uses'=>'PageController@maintenance']);
 
 Route::get('/tasks', ['middleware' => 'agri', 'uses' => 'TasksController@tasks']);
