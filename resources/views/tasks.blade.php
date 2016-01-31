@@ -44,7 +44,7 @@
 	      				<div class="input-field col s12">
 	      					<select name='crop' id="crop">
 	      					<option value='' disabled selected>Choose your option</option>
-	      					@foreach($results[0] as $result => $cropResult)
+	      					@foreach($results[1] as $result => $cropResult)
 	      						<option value='{{$cropResult}}'>{{$cropResult}}</option>
 	      					@endforeach
 	      					</select>
@@ -56,7 +56,7 @@
 	      				<div>
 	      					<select name='task' id="task">
 	      					<option value='' disabled selected>Choose your option</option>
-	      					@foreach($results[0] as $result => $taskResult)
+	      					@foreach($results[2] as $result => $taskResult)
 	      						<option value='{{$taskResult}}'>{{$taskResult}}</option>
 	      					@endforeach
 	      					</select>
@@ -104,38 +104,5 @@
 			<input type="submit" value="submit">
 		</form>
 	</div> -->
-
-
-
-	<?php
-		function outputTaskCategory(){
-			echo "<select name='taskCategory'>";
-			echo "<option value='' disabled selected>Choose your option</option>";
-			foreach ($results[0] as $result => $taskCategoryResult) {
-				echo "<option value='". $taskCategoryResult ."'>". $taskCategoryResult ."</option>";
-			}
-			echo "</select><label>TaskCategory</label>";
-		}
-
-		function outputCrops(){
-			echo "<select name='crop'>";
-			echo "<option value='' disabled selected>Choose your option</option>";
-			foreach ($results[1] as $result => $cropResult) {
-				echo "<option value='". $cropResult ."'>". $cropResult ."</option>";
-			}
-			echo "</select><label>Crops</label>";
-		}
-
-		function outputTasks(){
-			echo "<select name='task'>";
-			echo "<option value='' disabled selected>Choose your option</option>";
-			foreach ($results[2] as $result => $taskResult) {
-				echo "<option value='". $taskResult ."'>". $taskResult ."</option>";
-			}
-			echo "</select><label>Task</label>";
-		}
-
-
-	?>
 @stop
 @endsection
