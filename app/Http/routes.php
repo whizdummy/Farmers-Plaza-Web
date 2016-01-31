@@ -18,7 +18,7 @@ Route::get('/', function() {
 });
 Route::get('/maintenance', ['as'=>'maintenance', 'uses'=>'PageController@maintenance']);
 
-Route::get('/tasks', 'PageController@tasks');
+Route::get('/tasks', 'TasksController@tasks');
 
 Route::post('/submitForm', 'PageController@submitForm');
 
