@@ -48,7 +48,7 @@
 
 					        <h5 class="s12 center">Crop Price</h5>
 							<div class="input-field col s12" id="before">
-					          <input id="cropPrice" type="number" class="validate" name="cropPrice" required>
+					          <input id="cropPrice" type="number" step="any" class="validate" name="cropPrice" required>
 					          <label for="cropPrice">Crop Price</label>
 					        </div>
 		                </div>
@@ -56,12 +56,12 @@
 		                <div class="row">
 		                	<h5 class="s12 center">PH</h5>
 		                	<div class="input-field col s6">
-					          <input id="minPH" type="number" class="validate" name="minPh" required>
+					          <input id="minPH" type="number" step="any" class="validate" name="minPh" required>
 					          <label for="minPH">Minimum PH</label>
 					        </div>
 
 					        <div class="input-field col s6">
-					          <input id="maxPH" type="number" class="validate" name="maxPh" required>
+					          <input id="maxPH" type="number" step="any" class="validate" name="maxPh" required>
 					          <label for="maxPH">Maximum PH</label>
 					        </div>
 		                </div>
@@ -69,12 +69,12 @@
 		                <div class="row">
 		                	<h5 class="s12 center">Sunlight</h5>
 		                	<div class="input-field col s6">
-					          <input id="minSunlight" type="number" class="validate" name="minSunlight" required>
+					          <input id="minSunlight" type="number" step="any" class="validate" name="minSunlight" required>
 					          <label for="minSunlight">Minimum Sunlight</label>
 					        </div>
 
 					        <div class="input-field col s6">
-					          <input id="maxSunlight" type="number" class="validate" name="maxSunlight" required>
+					          <input id="maxSunlight" type="number" step="any" class="validate" name="maxSunlight" required>
 					          <label for="maxSunlight">Maximum Sunlight</label>
 					        </div>
 		                </div>
@@ -82,12 +82,12 @@
 		                <div class="row">
 		                	<h5 class="s12 center">Moisture</h5>
 		                	<div class="input-field col s6">
-					          <input id="minMoisture" type="number" class="validate" name="minMoisture" required>
+					          <input id="minMoisture" type="number" step="any" class="validate" name="minMoisture" required>
 					          <label for="minMoisture">Minimum Moisture</label>
 					        </div>
 
 					        <div class="input-field col s6">
-					          <input id="maxMoisture" type="number" class="validate" name="maxMoisture" required>
+					          <input id="maxMoisture" type="number" step="any" class="validate" name="maxMoisture" required>
 					          <label for="maxMoisture">Maximum Moisture</label>
 					        </div>
 		                </div>
@@ -95,12 +95,12 @@
 		                <div class="row">
 		                	<h5 class="s12 center">Temperature</h5>
 		                	<div class="input-field col s6">
-					          <input id="minTemp" type="number" class="validate" name="minTemp" required>
+					          <input id="minTemp" type="number" step="any" class="validate" name="minTemp" required>
 					          <label for="minTemp">Minimum Temperature</label>
 					        </div>
 
 					        <div class="input-field col s6">
-					          <input id="maxTemp" type="number" class="validate" name="maxTemp" required>
+					          <input id="maxTemp" type="number" step="any" class="validate" name="maxTemp" required>
 					          <label for="maxTemp">Maximum Temperature</label>
 					        </div>
 		                </div>
@@ -165,7 +165,7 @@
 		                 <div class="row">
 		                	<h5 class="s12 center">Fertilizer Amount</h5>
 		                	<div class="input-field col s12">
-					          <input id="fertAmt" type="number" class="validate" name="fertAmts" required>
+					          <input id="fertAmt" type="number" step="any" class="validate" name="fertAmts" required>
 					          <label for="fertAmt">Amount</label>
 					        </div>
 		                </div>
