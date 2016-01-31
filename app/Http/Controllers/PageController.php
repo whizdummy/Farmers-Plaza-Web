@@ -36,7 +36,6 @@ class PageController extends Controller
         }
 
         $queryFertilizer = new ParseQuery("Fertilizer");
-        $queryFertilizer->equalTo("fertilizerDesc", "Tae");
         $fertilizer = $queryFertilizer->find();
         $results[1] = array();     //QUERY ALL FERTILIZER TYPE PARSE OBJECTS
         foreach($fertilizer as $fert){
@@ -99,27 +98,25 @@ public $strCropName;
         $parseFertilizer = null;
 
         if($request->input('newcroptype') == null || strcmp($request->input('newcroptype'), "") == 0){
-            $cropTypeVar = $request->input('cropType');
-            $parseCropType = new ParseObject("CropType");
-            $parseCropType->set("cropTypeDesc", $cropTypeVar);
+            $parseCrop->set("cropType", $request->input('cropType'));
         }
         else {
             $cropTypeVar = $request->input('newcroptype');
             $parseCropType = new ParseObject("CropType");
             $parseCropType->set("cropTypeDesc", $cropTypeVar);
             $parseCropType->save();
+            $parseCrop->set("cropType", $parseCropType);
         }
 
         if($request->input('newferttype') == null || strcmp($request->input('newferttype'), "") == 0){
-            $fertTypeVar = $request->input('fertSelect');
-            $parseFertilizer = new ParseObject("Fertilizer");
-            $parseFertilizer->set("fertilizerDesc", $fertTypeVar);
+            $parseCrop->set("fertilizer", $request->input('fertSelect'));
         }
         else {
             $fertTypeVar = $request->input('newferttype');
             $parseFertilizer = new ParseObject("Fertilizer");
             $parseFertilizer->set("fertilizerDesc", $fertTypeVar);
             $parseFertilizer->save();
+            $parseCrop->set("fertilizer", $parseFertilizer);
         }
 
         $parseCrop->set("cropName",  $request->input('cropName'));
@@ -134,8 +131,6 @@ public $strCropName;
         $parseCrop->set("plantingDistance", $request->input('plantingDist'));
         $parseCrop->set("fertilizerAmount", $request->input('fertAmt'));
         $parseCrop->set("season", $request->input('season'));
-        $parseCrop->set("cropType", $parseCropType);
-        $parseCrop->set("fertilizer", $parseFertilizer);
 
         //task insertion
 
