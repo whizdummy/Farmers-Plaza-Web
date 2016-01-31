@@ -23,7 +23,7 @@
  		    <div class="nav-wrapper" >
  		    <img src="{!! URL::asset('pictures/navIcon.png') !!}">
  		      <ul class="right hide-on-med-and-down" align="middle">
- 		      <li><a href="#" class="green-text">ABOUT</a></li>
+ 		      @yield('navbar')
  		      </ul>
  		    </div>
  		  </nav>
@@ -38,7 +38,7 @@
  	      <div class="row">
  	        <div class="col l6 s12 green  darken-4">
  	        <h5 class="white-text">Farm2D.com</h5>
- 	        <p class="grey-text text-lighten-4">Farm2D.com is the world's first social network platform exclusively designed for recruitment of Restaurant Professionals</p>
+ 	        <p class="grey-text text-lighten-4">Farm2D.com is the world's first Farm Management System with amazing 2D Soil Mapping!</p>
  	        </div>
  	        <div class="col l4 offset-l2 s12 green  darken-4">
  	        <h5 class="white-text">Links</h5>
