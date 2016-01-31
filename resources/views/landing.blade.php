@@ -24,33 +24,9 @@
       </div>
     </div>
     <div class="wrapper">
-        <article class="main white"> <!--START OF MAIN-->    
+        <article class="main"> <!--START OF MAIN-->    
           <div class="row container">         
-              <form action="http://localhost:8000/verifyUser" method="POST" class="col s12">
-                    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                    <h4 class="col s12 center green-text text-darken-4">Log In</h4>
-
-                    <div class="row">
-                      <div class="input-field col s6">
-                        <input  id="username" type="text" class="validate black-text" name="userName">
-                        <label for="username">Username</label>
-                      </div>
-
-                      <div class="input-field col s6">
-                        <input id="password" type="password" class="validate black-text" name="userPass">
-                        <label for="password">Password</label>
-                      </div>
-                    </div>
-
-                    <div class="row">
-  
-                      <div class="col s6 center">
-                         <button class="btn waves-effect waves-light green" type="submit" name="action">LOG IN
-                         <i class="material-icons right">send</i>
-                       </button>           
-                      </div>                      
-                    </div>                  
-              </form>
+              
           </div>
         </article>  <!--END OF MAIN--> 
             <aside class="aside aside-1">
@@ -124,5 +100,9 @@
     </div>
     <div class="parallax"><img src="{!! URL::asset('pictures/background3.jpg') !!}" alt="Unsplashed background img 3"></div>
   </div>
+@endsection
+
+@section('navbar')
+<li><a class="waves-effect waves-light btn green darken-4 white-text">LOG IN</a></li>
 @endsection
  

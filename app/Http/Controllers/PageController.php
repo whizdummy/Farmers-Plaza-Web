@@ -98,6 +98,29 @@ public $strCropName;
         $parseCropType = null;
         $parseFertilizer = null;
 
+        
+        $parseQuery = new ParseQuery("Crop");
+        $parseQuery->equalTo("cropName", $request->input('cropName'));
+        if ($parseQuery->count() > 0){
+
+            return view('maintenance')->with('error', 'Crop already exists.');
+
+        }
+
+        $parseCrop->set("cropName",  $request->input('cropName'));
+        $parseCrop->set("price", $request->input('cropPrice'));
+        $parseCrop->set("minPh", $request->input('minPh'));
+        $parseCrop->set("maxPh", $request->input('maxPh'));
+        $parseCrop->set("minMoisture", $request->input('minMoisture'));
+        $parseCrop->set("maxMoisture", $request->input('maxMoisture'));
+        $parseCrop->set("minSunlight", $request->input('minSunlight'));
+        $parseCrop->set("maxSunlight", $request->input('maxSunlight'));
+        $parseCrop->set("minTemp", $request->input('minTemp'));
+        $parseCrop->set("maxTemp", $request->input('maxTemp'));
+        $parseCrop->set("plantingDistance", $request->input('plantingDist'));
+        $parseCrop->set("fertilizerAmount", $request->input('fertAmt'));
+        $parseCrop->set("season", $request->input('season'));
+
         // Tawag mo nalang
         if($request->input('newcroptype') == null || strcmp($request->input('newcroptype'), "") == 0){
             $parseQuery = new ParseQuery("CropType");
@@ -129,19 +152,6 @@ public $strCropName;
             $parseCrop->set("fertilizer", $parseFertilizer);
         }
 
-        $parseCrop->set("cropName",  $request->input('cropName'));
-        $parseCrop->set("price", $request->input('cropPrice'));
-        $parseCrop->set("minPh", $request->input('minPh'));
-        $parseCrop->set("maxPh", $request->input('maxPh'));
-        $parseCrop->set("minMoisture", $request->input('minMoisture'));
-        $parseCrop->set("maxMoisture", $request->input('maxMoisture'));
-        $parseCrop->set("minSunlight", $request->input('minSunlight'));
-        $parseCrop->set("maxSunlight", $request->input('maxSunlight'));
-        $parseCrop->set("minTemp", $request->input('minTemp'));
-        $parseCrop->set("maxTemp", $request->input('maxTemp'));
-        $parseCrop->set("plantingDistance", $request->input('plantingDist'));
-        $parseCrop->set("fertilizerAmount", $request->input('fertAmt'));
-        $parseCrop->set("season", $request->input('season'));
 
         //task insertion
 

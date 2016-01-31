@@ -6,7 +6,7 @@
 
       		<div id='addTask'>
       			<form action="/addTask" method="post">
-      				<h4>Add Task</h4>
+      				<h4 class="green-text text-darken-2">Add Task</h4>
       				<div class="row">
       					<div class="input-field col s12">
 	      					<select name='crop' id="crop">
@@ -54,4 +54,7 @@
 			$('select').material_select();
 			});
 		</script>
+@endsection
+@section('navbar')
+<li><a class="waves-effect waves-light btn green darken-4 white-text">Log out</a></li>
 @endsection
