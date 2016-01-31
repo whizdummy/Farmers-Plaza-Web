@@ -10,7 +10,7 @@
           <div class="col s6">
             <i class="material-icons large green-text">person_add</i>
             <p class="white-text light container">
-              gaZtronaut.com is the world's first social network platform exclusively designed for recruitment of Restaurant Professionals
+                Farm2D.com makes your life easier! For modern management technologies thru your mobile phone!
             </p>
           </div>
 
@@ -29,26 +29,22 @@
               <form action="http://localhost:8000/verifyUser" method="POST" class="col s12">
                     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                     <h4 class="col s12 center green-text text-darken-4">Log In</h4>
+
                     <div class="row">
                       <div class="input-field col s6">
-                        <input id="first_name" type="text" class="validate" name="userName">
-                        <label for="first_name">Username</label>
+                        <input  id="username" type="text" class="validate black-text" name="userName">
+                        <label for="username">Username</label>
                       </div>
 
                       <div class="input-field col s6">
-                        <input id="last_name" type="password" class="validate" name="userPass">
-                        <label for="last_name">Password</label>
+                        <input id="password" type="password" class="validate black-text" name="userPass">
+                        <label for="password">Password</label>
                       </div>
                     </div>
 
                     <div class="row">
-                      <div class="col s6">
-                        <a class="btn waves-effect waves-light" href="#">SIGN UP
-                           <i class="material-icons right">send</i>
-                         </a>
-                      </div>
   
-                      <div class="col s6">
+                      <div class="col s6 center">
                          <button class="btn waves-effect waves-light green" type="submit" name="action">LOG IN
                          <i class="material-icons right">send</i>
                        </button>           

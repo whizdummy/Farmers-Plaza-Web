@@ -10,11 +10,18 @@
 		                <div class="row" id="cropParent">
 		                	<div class="input-field col s6">
 		                			<p>
-		                		     <input name="group1" type="radio" id="test1"  onclick="document.getElementById('newCropTxt').disabled = true; document.getElementById('cropSelect').removeAttribute(disabled);"/>
+		                		     <input name="group1" type="radio" id="test1"  onclick="document.getElementById('newCropTxt').disabled = true; 
+		                		     														document.getElementById('cropSelect').removeAttribute(disabled);
+		                		     														document.getElementById('cropSelect').setAttribute(required);
+		                		     														document.getElementById('newCropTxt').removeAttribute(required);"/>
 		                		     <label for="test1">Choose crop type</label>
 		                		   </p>
 		                		   <p>
-		                		     <input name="group1" type="radio" id="test2"  onclick="document.getElementById('cropSelect').disabled = true; document.getElementById('newCropTxt').disabled = false;"/>
+		                		     <input name="group1" type="radio" id="test2"  onclick="document.getElementById('cropSelect').disabled = true; 
+		                		     														document.getElementById('newCropTxt').disabled = false;
+		                		     														document.getElementById('newCropTxt').setAttribute(required);
+		                		     														document.getElementById('cropSelect').removeAttribute(required);
+		                		     														"/>
 		                		     <label for="test2">New crop type</label>
 		                		   </p>
 		                	</div>
@@ -35,13 +42,13 @@
 
 					        <h5 class="s12 center">Crop Name</h5>
 							<div class="input-field col s12" id="before">
-					          <input id="cropName" type="text" class="validate" name="cropName">
+					          <input id="cropName" type="text" class="validate" name="cropName" required>
 					          <label for="cropName">Crop Name</label>
 					        </div>
 
 					        <h5 class="s12 center">Crop Price</h5>
 							<div class="input-field col s12" id="before">
-					          <input id="cropPrice" type="text" class="validate" name="cropPrice">
+					          <input id="cropPrice" type="number" class="validate" name="cropPrice" required>
 					          <label for="cropPrice">Crop Price</label>
 					        </div>
 		                </div>
@@ -49,12 +56,12 @@
 		                <div class="row">
 		                	<h5 class="s12 center">PH</h5>
 		                	<div class="input-field col s6">
-					          <input id="minPH" type="text" class="validate" name="minPh">
+					          <input id="minPH" type="number" class="validate" name="minPh" required>
 					          <label for="minPH">Minimum PH</label>
 					        </div>
 
 					        <div class="input-field col s6">
-					          <input id="maxPH" type="text" class="validate" name="maxPh">
+					          <input id="maxPH" type="number" class="validate" name="maxPh" required>
 					          <label for="maxPH">Maximum PH</label>
 					        </div>
 		                </div>
@@ -62,12 +69,12 @@
 		                <div class="row">
 		                	<h5 class="s12 center">Sunlight</h5>
 		                	<div class="input-field col s6">
-					          <input id="minSunlight" type="text" class="validate" name="minSunlight">
+					          <input id="minSunlight" type="number" class="validate" name="minSunlight" required>
 					          <label for="minSunlight">Minimum Sunlight</label>
 					        </div>
 
 					        <div class="input-field col s6">
-					          <input id="maxSunlight" type="text" class="validate" name="maxSunlight">
+					          <input id="maxSunlight" type="number" class="validate" name="maxSunlight" required>
 					          <label for="maxSunlight">Maximum Sunlight</label>
 					        </div>
 		                </div>
@@ -75,12 +82,12 @@
 		                <div class="row">
 		                	<h5 class="s12 center">Moisture</h5>
 		                	<div class="input-field col s6">
-					          <input id="minMoisture" type="text" class="validate" name="minMoisture">
+					          <input id="minMoisture" type="number" class="validate" name="minMoisture" required>
 					          <label for="minMoisture">Minimum Moisture</label>
 					        </div>
 
 					        <div class="input-field col s6">
-					          <input id="maxMoisture" type="text" class="validate" name="maxMoisture">
+					          <input id="maxMoisture" type="number" class="validate" name="maxMoisture" required>
 					          <label for="maxMoisture">Maximum Moisture</label>
 					        </div>
 		                </div>
@@ -88,12 +95,12 @@
 		                <div class="row">
 		                	<h5 class="s12 center">Temperature</h5>
 		                	<div class="input-field col s6">
-					          <input id="minTemp" type="text" class="validate" name="minTemp">
+					          <input id="minTemp" type="number" class="validate" name="minTemp" required>
 					          <label for="minTemp">Minimum Temperature</label>
 					        </div>
 
 					        <div class="input-field col s6">
-					          <input id="maxTemp" type="text" class="validate" name="maxTemp">
+					          <input id="maxTemp" type="number" class="validate" name="maxTemp" required>
 					          <label for="maxTemp">Maximum Temperature</label>
 					        </div>
 		                </div>
@@ -101,7 +108,7 @@
 		                <div class="row">
 		                	<h5 class="s12 center">Planting Distance(sq. meter)</h5>
 		                	<div class="input-field col s12">
-					          <input id="plantDist" type="text" class="validate" name="plantDist">
+					          <input id="plantDist" type="number" class="validate" name="plantDist" required>
 					          <label for="plantDist">Planting Distance</label>
 					        </div>
 		                </div>
@@ -121,11 +128,19 @@
 		                <div class="row">
 		                	<div class="input-field col s6">
 		                		<p>
-		                	     <input name="fertgroup" type="radio" id="test3"  onclick="document.getElementById('newFertTxt').disabled = true; document.getElementById('fertSelect').removeAttribute(disabled);"/>
+		                	     <input name="fertgroup" type="radio" id="test3"  onclick="document.getElementById('newFertTxt').disabled = true; 
+		                	     															document.getElementById('fertSelect').removeAttribute(disabled);
+		                	     															document.getElementById('fertSelect').setAttribute(required);
+		                		     														document.getElementById('newFertTxt').removeAttribute(required);"/>
 		                	     <label for="test3">Choose Fertilizer type</label>
 		                	   </p>
 		                	   <p>
-		                	     <input name="fertgroup" type="radio" id="test4"  onclick="document.getElementById('fertSelect').disabled = true; document.getElementById('newFertTxt').disabled = false;"/>
+		                	     <input name="fertgroup" type="radio" id="test4"  onclick="document.getElementById('fertSelect').disabled = true; 
+		                	     															document.getElementById('newFertTxt').disabled = false;
+		                	     															document.getElementById('newFertTxt').setAttribute(required);
+		                		     														document.getElementById('fertSelect').removeAttribute(required);
+		                		     														var x = document.getElementById('fertSelect');
+		                		     														x.options[0].selected = true;"/>
 		                	     <label for="test4">New Fertilizer type</label>
 		                	   </p>
 		                	</div>
@@ -133,7 +148,7 @@
 		                	<h5 class="s12 center">Fertilizer</h5>
 		                	<div class="input-field col s6" id="fertSelect">
 		                		<select name='fertSelect'>
-								<option value='' disabled selected>Choose your option</option>
+								<option value='' disabled selected id="defaultSelect">Choose your option</option >
 								@foreach($results[1] as $result => $cropFertResult)
 									<option value="{{$cropFertResult}}">{{$cropFertResult}}</option>
 								@endforeach
@@ -150,7 +165,7 @@
 		                 <div class="row">
 		                	<h5 class="s12 center">Fertilizer Amount</h5>
 		                	<div class="input-field col s12">
-					          <input id="fertAmt" type="text" class="validate" name="fertAmts">
+					          <input id="fertAmt" type="number" class="validate" name="fertAmts" required>
 					          <label for="fertAmt">Amount</label>
 					        </div>
 		                </div>
