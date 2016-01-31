@@ -60,29 +60,22 @@ class TasksController extends Controller
         $parseQuery->equalTo("taskCatDesc", $request->input('taskCategory'));
         $taskCat = $parseQuery->first();
 
+        $parseCropQuery = new ParseQuery("Crop");
+        $parseCropQuery->equalTo("cropName", $request->input('crop'));
+        $crop = $parseCropQuery->first();
+
         var_dump($taskCat);
         var_dump($request->input('taskDuration'));
 
-
+        $parseTask->set("cropName", $crop);
         $parseTask->set("taskCategory", $taskCat);
-
         $parseTask->set("taskDesc", $request->input('taskName'));
         $parseTask->set("taskDuration", $request->input('taskDuration'));
         $parseTask->save();
-    }
 
-    public function assignTask(Request $request){
-        $parseTask = new ParseObject("Task");
 
-        $parseQuery = new ParseQuery("Crop");
-        $parseQuery->equalTo("cropName", $request->input('crop'));
-        $crop = $parseQuery->first();
 
-        $parseTask->set("cropName", $crop);
+        
 
-        //select muna ng crop dito = $request->input('crop')
-        //$parseCrop->set("diKoAlamDito", $request->input('task'))
-        //$parseCrop->save();
-        //Paedit nlng. Di ko alam to. ^
     }
 }
