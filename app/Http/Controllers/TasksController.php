@@ -17,29 +17,12 @@ class TasksController extends Controller
         $results = array();
         $object = array();
 
-        $queryTaskCategory = new ParseQuery("TaskCategory");
-        $queryTaskCategory->select("taskCatDesc");
-        $object = $queryTaskCategory->find();
-        $results[0] = array();
-        foreach ($object as $value) {
-            array_push($results[0], $value->get('taskCatDesc'));
-        }
-
         $queryCrop = new ParseQuery("Crop");
         $queryCrop->select("cropName");
         $object = $queryCrop->find();
-        $results[1] = array();
         foreach ($object as $value) {
-            array_push($results[1], $value->get('cropName'));
+            array_push($results, $value->get('cropName'));
         }        
-
-        $queryTask = new ParseQuery("Task");
-        $queryTask->select("taskDesc");
-        $object = $queryTask->find();
-        $results[2] = array();
-        foreach ($object as $value) {
-            array_push($results[2], $value->get('taskDesc'));
-        }   
 
         return view('tasks')->with("results", $results);
     }
@@ -54,16 +37,11 @@ class TasksController extends Controller
     public function addTask(Request $request){
         $parseTask = new ParseObject("Task");
 
-        $parseQuery = new ParseQuery("TaskCategory");
-        $parseQuery->equalTo("taskCatDesc", $request->input('taskCategory'));
-        $taskCat = $parseQuery->first();
-
         $parseCropQuery = new ParseQuery("Crop");
         $parseCropQuery->equalTo("cropName", $request->input('crop'));
         $crop = $parseCropQuery->first();
 
         $parseTask->set("cropName", $crop);
-        $parseTask->set("taskCategory", $taskCat);
         $parseTask->set("taskDesc", $request->input('taskName'));
         $parseTask->set("taskDuration", $request->input('taskDuration'));
         $parseTask->save();
