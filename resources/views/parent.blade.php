@@ -23,6 +23,11 @@
  		    <div class="nav-wrapper" >
  		    <img src="{!! URL::asset('pictures/navIcon.png') !!}">
  		      <ul class="right hide-on-med-and-down" align="middle">
+ 		      	<li><a href="#" class="green-text">ABOUT</a></li>
+ 		      @if(Session::get('username') != null)
+ 		      	<li><a href="{{URL::to('/logOut')}}" class="green-text">LOG OUT</a></li>
+ 		      	{{-- Html::link --}}
+ 		      @endif
  		      @yield('navbar')
  		      </ul>
  		    </div>

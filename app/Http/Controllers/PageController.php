@@ -190,4 +190,11 @@ public $strCropName;
         }
 
     }
+
+    public function logOut(Request $request) {
+        \Session::forget('username');
+        ParseUser::logOut();
+
+        return redirect('/');
+    }
 }
