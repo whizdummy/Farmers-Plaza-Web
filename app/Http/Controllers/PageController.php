@@ -171,9 +171,15 @@ public $strCropName;
 
 
         //task insertion
-
-        $parseCrop->save();
-        echo "SUCCESS";
+        try {
+            $parseCrop->save();
+            \Session::put('message', 1);
+            return redirect('maintenance');
+        } catch(ParseException $e) {
+            \Session::put('message', -1);
+            return redirect('maintenance');
+        }
+            
 
     }
 
@@ -183,20 +189,18 @@ public $strCropName;
 
         try{
             $user = ParseUser::logIn($request->input('userName'), $request->input('userPass'));
-            $userQuery->equalTo("isAdmin", true);
             $currentUser = ParseUser::getCurrentUser();
-            $userQuery->equalTo("objectId", $currentUser->getObjectId());
-            $result = $userQuery->find();
-
-            if(count($result) > 0) {
+            if(!$currentUser->get('isAdmin')) {
+                \Session::put('message', 0);
+                return redirect('/login');
+            } else {
                 $request->session()->put('username', $request->input('userName'));
-                return redirect('maintenance');
-            } 
-
-            return view('login')->with("message", "error");
+                return redirect('/maintenance');
+            }
         }
         catch (ParseException $e) {
-            return view('/login')->with("message", "error");
+            \Session::put('message', -1);
+            return redirect('/login');
         }
 
     }

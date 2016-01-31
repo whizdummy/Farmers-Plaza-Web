@@ -18,7 +18,7 @@ Route::get('/', function() {
 });
 
 Route::get('/login', function() {
-	return view('login')->with('message', "success");
+	return view('login');
 });
 
 Route::get('/logout', 'PageController@logOut');

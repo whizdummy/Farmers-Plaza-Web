@@ -4,8 +4,12 @@
 	    <article class="main white mainArticle" style="margin-top: 20px;"> <!--START OF MAIN-->    
 	      <div class="row container">   
 	      <h1 class="green-text center text-darken-4">Log In</h1>
-	      	@if($message == "error")
+	      	@if(Session::get('message') != null && Session::get('message') == -1)
 	      		<p style="color:red">Invalid Username/Password. Please try again.</p>
+	      		{{Session::forget('message')}}
+	      	@elseif(Session::get('message') != null && Session::get('message') == 0)
+	      		<p style="color:orange">Only agriculturist can access this site.</p>
+	      		{{Session::forget('message')}}
 	      	@endif
 	      	<form action="{{URL::to('/verifyUser')}}" method="POST" class="col s12">
 	      	      <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Parse\ParseObject;
 use Parse\ParseQuery;
 use Parse\ParseUser;
+use Parse\ParseException;
 
 use Illuminate\Http\Request;
 
@@ -42,7 +43,7 @@ class TasksController extends Controller
         $crop = $parseCropQuery->first();
 
         $parseQuery = new ParseQuery("Task");
-        $parseQuery->equalTo("taskDesc");
+        $parseQuery->equalTo("taskDesc", $request->input('taskName'));
         if ($parseQuery->count() > 0){
             return redirect('/tasks');
         }
@@ -50,6 +51,13 @@ class TasksController extends Controller
         $parseTask->set("cropName", $crop);
         $parseTask->set("taskDesc", $request->input('taskName'));
         $parseTask->set("taskDuration", $request->input('taskDuration'));
-        $parseTask->save();
+        try {
+             $parseTask->save();
+             \Session::put('message', 1);
+             return redirect('tasks');
+        } catch(ParseException $e) {
+            \Session::put('message', -1);
+            return redirect('tasks');
+        }
     }
 }

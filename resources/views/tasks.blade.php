@@ -7,6 +7,13 @@
       		<div id='addTask'>
       			<form action="/addTask" method="post">
       				<h4 class="green-text text-darken-2">Add Task</h4>
+      				@if(Session::get('message') != null && Session::get('message') == 1) 
+      					<p style="color:green;">Tasks Added Successfully</p>
+      					{{Session::forget('message')}}
+      				@elseif(Session::get('message') != null && Session::get('message') -1)
+      					<p style="color:red">Save Failed. Please try again</p>
+      					{{Session::forget('message')}}
+      				@endif
       				<div class="row">
       					<div class="input-field col s12">
 	      					<select name='crop' id="crop">
@@ -54,8 +61,4 @@
 			$('select').material_select();
 			});
 		</script>
-@endsection
-@section('navbar')
-<li><a href="#" class="green-text text-darken-4 ">ADD CROPS</a></li>
-<li class="active"><a href="#" class="green-text text-darken-4 ">ADD TASK</a></li>
 @endsection

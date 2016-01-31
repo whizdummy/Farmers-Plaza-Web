@@ -3,7 +3,15 @@
 		<div class="wrapper">
 		    <article class="main white mainArticle"> <!--START OF MAIN-->    
 		      <div class="row container">   
-		      	  <h4 class="center green-text text-darken-4">Maintenance</h4>      
+		      	  <h4 class="center green-text text-darken-4">Maintenance</h4>  
+		      	  
+		      	  	@if(Session::get('message') != null && Session::get('message') == 1)
+		      	  		<p style="color:green;">Crops saved successfully</p>    
+		      	  		{{Session::forget('message')}}
+		      	  	@elseif(Session::get('message') != null && Session::get('message') == -1)
+		      	  		<p style="color:red;">Error Saving</p> 
+		      	  		{{Session::forget('message')}}
+		      	  	@endif
 		          <form action="/submitForm" method="POST" class="col s12">
 		          		<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 		                <div class="row" id="cropParent">
@@ -226,8 +234,4 @@
 		}
 		</script>
 
-@endsection
-@section('navbar')
-<li class="active"><a href="#" class="green-text text-darken-4">ADD CROPS</a></li>
-<li><a href="#" class="green-text text-darken-4">ADD TASK</a></li>
 @endsection

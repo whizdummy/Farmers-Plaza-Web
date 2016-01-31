@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
  	<html lang="en">
  	<head>
@@ -28,7 +27,10 @@
  		      	<li><a href="#" class="green-text">ABOUT</a></li>
 
  		      	@if(Session::get('username') != null)
+ 		      		<li class="{{ strpos(Request::url(), 'maintenance') !== false ? 'active' : '' }}"><a href="{{URL::to('/maintenance')}}" class="green-text text-darken-4">ADD CROPS</a></li>
+					<li class="{{ strpos(Request::url(), 'tasks') !== false ? 'active' : '' }}"><a href="{{URL::to('tasks')}}" class="green-text text-darken-4 ">ADD TASK</a></li>
  		      		<li><a class="waves-effect waves-light btn green darken-4 white-text" href="{{URL::to('/logout')}}">LOG OUT</a></li>
+ 		      		
  		      		@else 
  		      			<li><a class="waves-effect waves-light btn green darken-4 white-text" href="{{URL::to('/login')}}">LOG IN</a></li>
  		      	@endif
