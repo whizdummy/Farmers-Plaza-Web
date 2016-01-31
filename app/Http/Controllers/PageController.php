@@ -157,45 +157,4 @@ public $strCropName;
         }
 
     }
-
-    public function tasks(){
-        $results = array();
-
-        $queryTaskCategory = new ParseQuery("TaskCategory");
-        $queryTaskCategory->select("taskCatDesc");
-        $results[0] = $queryTaskCategory->find();
-
-        $queryCrop = new ParseQuery("Crop");
-        $queryCrop->select("cropTypeDesc");
-        $results[1] = $queryCrop->find();
-
-        $queryTask = new ParseQuery("Task");
-        $queryTask->select("taskDesc");
-        $results[2] = $queryTask->find();
-    }
-
-    public function addTaskCategory(Request $request){
-        $parseTaskCategory = new ParseObject("TaskCategory");
-
-        $parseTaskCategory->set("taskCatDesc", $request->input('taskCategoryName'));
-        $parseTaskCategory->save();
-    }
-
-    public function addTask(Request $request){
-        $parseTask = new ParseObject("Task");
-
-        $parseTask->set("taskCategory", $request->input('taskCategory'));
-        $parseTask->set("taskDesc", $request->input('taskName'));
-        $parseTask->set("taskDuration", $request->input('taskDuration'));
-        $parseTask->save();
-    }
-
-    public function assignTask(Request $request){
-        $parseCrop = new ParseObject("Crop");
-
-        //select muna ng crop dito = $request->input('crop')
-        //$parseCrop->set("diKoAlamDito", $request->input('task'))
-        //$parseCrop->save();
-        //Paedit nlng. Di ko alam to. ^
-    }
 }
