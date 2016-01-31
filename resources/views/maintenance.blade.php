@@ -35,7 +35,7 @@
 					        </div>
 
 							<div class="input-field col s12" id="before">
-					          <input id="cropName" type="text" class="validate">
+					          <input id="cropName" type="text" class="validate" name="cropName">
 					          <label for="cropName">Crop Name</label>
 					        </div>
 		                </div>
