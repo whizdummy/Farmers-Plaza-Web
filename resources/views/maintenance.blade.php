@@ -227,3 +227,7 @@
 		</script>
 
 @endsection
+@section('navbar')
+<li class="active"><a href="#" class="green-text text-darken-4">ADD CROPS</a></li>
+<li><a href="#" class="green-text text-darken-4">ADD TASK</a></li>
+@endsection
