@@ -1,50 +1,75 @@
 @extends('parent')
 @section('mainBody')
-
 	<div class="wrapper">
 	    <article class="main white mainArticle"> <!--START OF MAIN-->    
 	      <div class="row container">   
-	      	<form action="/addTaskCategory" method="post">
-	      	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-	      		<div class="row">
-		      		<div class="input-field col s6">
-						<p>
-							<input name="grpTask" type="radio" id="test1"  onclick="document.getElementById('newTaskTxt').disabled = true; document.getElementById('taskSelect').removeAttribute(disabled);"/>
-							<label for="grpTask">Choose task type</label>
-						</p>
-						<p>
-							<input name="group1" type="radio" id="test2"  onclick="document.getElementById('taskSelect').disabled = true; document.getElementById('newTaskTxt').disabled = false;"/>
-							<label for="test2">New task type</label>
-						</p>
-						</div>
-
-						<div class="input-field col s6">
-							<select name='taskType' id="taskSelect">
-								<option value='' disabled selected>Choose your option</option>
-								@foreach($results[0] as $result => $cropTypeResult)
-								<option value='{{$cropTypeResult}}'>{{$cropTypeResult}}</option>
-								@endforeach
-							</select><label>Crop Type</label>
-						</div>
-
-						<div class="input-field col s6">
-						<input id="newTaskTxt" type="text" class="validate" name="newcroptype">
-						<label for="newTaskTxt">New Task Type</label>
-						</div>
-
-						<div class="input-field col s12" id="before">
-				          <input id="taskDurTxt" type="text" class="validate" name="cropName">
-				          <label for="taskDurTxt">Task Duration</label>
-				        </div>
-
-				        <div class="col s12 center">
-				        	<button class="btn waves-effect waves-light" type="submit" name="action">Submit
-				        	   <i class="material-icons right">send</i>
-				        	 </button>
-				        </div>
+	      	<div id='addTaskCategory'>
+	      		<form action="/addTaskCategory" method="post">
+	      			<div class="input-field col s12" id="before">
+			          <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+	      				Add Task Category: <input type="text" name="taskCategoryName"><br>
+	      				<input type="submit" value="submit">
+			        </div>	
+	      		</form>	
 	      		</div>
-	      		
-	      	</form>
+
+	      		<div id='addTask'>
+	      			<form action="/addTask" method="post">
+
+	      				<h4>Task Category</h4>
+	      				<div class="input-field col s12">
+	      					<select name='taskCategory' id="taskCategory">
+	      					<option value='' disabled selected>Choose your option</option>
+	      					@foreach($results[0] as $result => $taskCategoryResult)
+	      						<option value='{{$taskCategoryResult}}'>{{$taskCategoryResult}}</option>
+	      					@endforeach
+	      					</select>
+	      				</div>
+	      				
+	      				<div class="input-field col s12">
+	      					<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+	      					Add Task: <input type="text" name="taskName"><br>
+	      					Duration: <input type="text" name="taskDuration"><br>
+	      					<input type="submit" value="submit">
+	      				</div>
+	      				
+	      			</form>	
+	      		</div>
+
+	      		<div id='assignTask'>
+	      			<form action="/assignTask" method="post">
+	      				
+	      				<label>Crop</label>
+
+	      				<div class="input-field col s12">
+	      					<select name='crop' id="crop">
+	      					<option value='' disabled selected>Choose your option</option>
+	      					@foreach($results[0] as $result => $cropResult)
+	      						<option value='{{$cropResult}}'>{{$cropResult}}</option>
+	      					@endforeach
+	      					</select>
+	      				</div>
+	      				
+
+	      				<label>Task</label>
+
+	      				<div>
+	      					<select name='task' id="task">
+	      					<option value='' disabled selected>Choose your option</option>
+	      					@foreach($results[0] as $result => $taskResult)
+	      						<option value='{{$taskResult}}'>{{$taskResult}}</option>
+	      					@endforeach
+	      					</select>
+	      				</div>
+	      				
+	      				<div class="row">
+	      					<button class="btn waves-effect waves-light" type="submit" name="action" value="submit">SUBMIT
+		                     <i class="material-icons right">send</i>
+		                   </button>
+	      				</div>
+	      				<!-- <input type="submit" value="submit"> -->
+	      			</form>
+	      		</div>
 	      </div>
 	    </article>  <!--END OF MAIN--> 
 	        <aside class="aside aside-1">
