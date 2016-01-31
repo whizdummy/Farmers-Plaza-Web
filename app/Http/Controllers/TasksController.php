@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class PageController extends Controller
+class TasksController extends Controller
 {
     public function tasks(){
         $results = array();
