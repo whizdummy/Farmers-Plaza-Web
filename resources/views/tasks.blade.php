@@ -1,8 +1,56 @@
 @extends('parent')
 @section('mainBody')
-	<div id='addTaskCategory'>
+
+	<div class="wrapper">
+	    <article class="main white mainArticle"> <!--START OF MAIN-->    
+	      <div class="row container">   
+	      	<form action="/addTaskCategory" method="post">
+	      	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+	      		<div class="row">
+		      		<div class="input-field col s6">
+						<p>
+							<input name="grpTask" type="radio" id="test1"  onclick="document.getElementById('newTaskTxt').disabled = true; document.getElementById('taskSelect').removeAttribute(disabled);"/>
+							<label for="grpTask">Choose task type</label>
+						</p>
+						<p>
+							<input name="group1" type="radio" id="test2"  onclick="document.getElementById('taskSelect').disabled = true; document.getElementById('newTaskTxt').disabled = false;"/>
+							<label for="test2">New task type</label>
+						</p>
+						</div>
+
+						<div class="input-field col s6">
+							<select name='taskType' id="taskSelect">
+								<option value='' disabled selected>Choose your option</option>
+								@foreach($results[0] as $result => $cropTypeResult)
+								<option value='{{$cropTypeResult}}'>{{$cropTypeResult}}</option>
+								@endforeach
+							</select><label>Crop Type</label>
+						</div>
+
+						<div class="input-field col s6">
+						<input id="newTaskTxt" type="text" class="validate" name="newcroptype">
+						<label for="newTaskTxt">New Task Type</label>
+						</div>
+
+						<div class="input-field col s12" id="before">
+				          <input id="taskDurTxt" type="text" class="validate" name="cropName">
+				          <label for="taskDurTxt">Task Duration</label>
+				        </div>
+	      		</div>
+	      		
+	      	</form>
+	      </div>
+	    </article>  <!--END OF MAIN--> 
+	        <aside class="aside aside-1">
+	           
+	        </aside>
+	        <aside class="aside aside-2">
+
+	        </aside>
+	</div>
+	<!-- <div id='addTaskCategory'>
 		<form action="/addTaskCategory" method="post">
-			<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+			
 			Add Task Category: <input type="text" name="taskCategoryName"><br>
 			<input type="submit" value="submit">
 		</form>	
@@ -24,7 +72,7 @@
 			Task: <?php outputTasks(); ?><br>
 			<input type="submit" value="submit">
 		</form>
-	</div>
+	</div> -->
 
 
 
@@ -59,3 +107,4 @@
 
 	?>
 @stop
+@endsection
