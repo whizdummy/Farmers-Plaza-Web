@@ -43,7 +43,7 @@
   <div class="container">
     <div class="section scrollspy" id="ourWorld">
       <div class="row">
-      <h3 class="col s12 white-text bold center" align="center">Check out our app in Play Store!</h3>
+      <h3 class="col s12 yellow-text text-lighten-2 bold center" align="center">Check out our app in Play Store!</h3>
         <div class="col s12 center">
           <img src="{!! URL::asset('pictures/mobPics.png') !!}" width="60%" height="50%">
         </div>
