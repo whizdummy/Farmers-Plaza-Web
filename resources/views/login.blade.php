@@ -4,7 +4,7 @@
 	    <article class="main white mainArticle" style="margin-top: 20px;"> <!--START OF MAIN-->    
 	      <div class="row container">   
 	      <h1 class="green-text center text-darken-4">Log In</h1>
-	      	<form action="http://localhost:8000/verifyUser" method="POST" class="col s12">
+	      	<form action="{{URL::to('/verifyUser')}}" method="POST" class="col s12">
 	      	      <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
 	      	      <div class="row">
