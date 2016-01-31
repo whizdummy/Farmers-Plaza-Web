@@ -7,8 +7,8 @@
 		      	<br><br>
 		      	 <h1 class="green-text text-darken-4">Crop saving success!</h1>
 		      	 <br><br>
-		      	 <div class="row">
-		      	 	<i class=" large material-icons center">done_all</i>
+		      	 <div class="row center">
+		      	 	<img src="{!! URL::asset('pictures/done.png') !!}">
 		      	 </div>
 		      	 <div class="row container">
 		      	 	<a class="waves-effect waves-light btn-large right green"><i class="material-icons left">note_add</i>Add Task</a>

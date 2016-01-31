@@ -29,7 +29,7 @@
 							</div>
 
 							<div class="input-field col s6">
-					          <input id="newCropTxt" type="text" class="validate" name="newcroptype">
+					          <input id="newCropTxt" type="text" class="validate" name="newcroptype" re>
 					          <label for="newCropTxt">New Crop Type</label>
 					        </div>
 
