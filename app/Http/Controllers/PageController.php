@@ -120,6 +120,7 @@ public $strCropName;
         $parseCrop->set("plantingDistance", $request->input('plantingDist'));
         $parseCrop->set("fertilizerAmount", $request->input('fertAmt'));
         $parseCrop->set("season", $request->input('season'));
+        $parseCrop->set("cropDesc", $request->input('cropDesc'));
 
         // Tawag mo nalang
         if($request->input('newcroptype') == null || strcmp($request->input('newcroptype'), "") == 0){
