@@ -30,12 +30,12 @@
 							</div>
 
 							<div class="input-field col s6">
-					          <input id="newCropTxt" type="text" class="validate" name="minPh">
+					          <input id="newCropTxt" type="text" class="validate" name="newcroptype">
 					          <label for="newCropTxt">New Crop Type</label>
 					        </div>
 
 							<div class="input-field col s12" id="before">
-					          <input id="cropName" type="text" class="validate">
+					          <input id="cropName" type="text" class="validate" name="cropName">
 					          <label for="cropName">Crop Name</label>
 					        </div>
 		                </div>
@@ -118,7 +118,7 @@
 		                		<select name='fertSelect'>
 								<option value='' disabled selected>Choose your option</option>
 								@foreach($results[1] as $result => $cropFertResult)
-									<option value="{{$cropFertResult}}">"{{$cropFertResult}}</option>
+									<option value="{{$cropFertResult}}">{{$cropFertResult}}</option>
 								@endforeach
 								</select><label>Fertilizer</label>
 							</div>

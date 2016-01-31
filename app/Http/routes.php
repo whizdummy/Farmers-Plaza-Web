@@ -18,14 +18,14 @@ Route::get('/', function() {
 });
 Route::get('/maintenance', ['as'=>'maintenance', 'uses'=>'PageController@maintenance']);
 
-Route::get('/tasks', 'PageController@tasks');
+Route::get('/tasks', 'TasksController@tasks');
 
 Route::post('/submitForm', 'PageController@submitForm');
 
 Route::post('/verifyUser', 'PageController@verifyUser');
 
-Route::post('/addTaskCategory', 'PageController@addTaskCategory');
+Route::post('/addTaskCategory', 'TasksController@addTaskCategory');
 
-Route::post('/addTask', 'PageController@addTask');
+Route::post('/addTask', 'TasksController@addTask');
 
-Route::post('/assignTask', 'PageController@assignTask');
+Route::post('/assignTask', 'TasksController@assignTask');
