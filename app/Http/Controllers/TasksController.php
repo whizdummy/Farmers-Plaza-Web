@@ -18,7 +18,6 @@ class TasksController extends Controller
         $object = array();
 
         $queryTaskCategory = new ParseQuery("TaskCategory");
-        $queryTaskCategory->select("taskCatDesc");
         $object = $queryTaskCategory->find();
         $results[0] = array();
         foreach ($object as $value) {
@@ -40,6 +39,8 @@ class TasksController extends Controller
         foreach ($object as $value) {
             array_push($results[2], $value);
         }   
+
+        return view('tasks')->with("results", $results);
     }
 
     public function addTaskCategory(Request $request){
