@@ -36,7 +36,7 @@ class PageController extends Controller
         }
 
         $queryFertilizer = new ParseQuery("Fertilizer");
-        $queryFertilizer->equalTo("fertilizerDesc", "Tae");
+        $queryFertilizer->select("fertilizerDesc");
         $fertilizer = $queryFertilizer->find();
         $results[1] = array();     //QUERY ALL FERTILIZER TYPE PARSE OBJECTS
         foreach($fertilizer as $fert){
