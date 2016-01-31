@@ -26,13 +26,13 @@
 
       					<div class="input-field col s12">
 	      					<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-	      					<input type="text" name="taskName" id="txtTaskName">
+	      					<input type="text" name="taskName" class="validate" id="txtTaskName">
 	      					<label for="txtTaskName">Task Name</label>
  						</div>
 
  						<div class="input-field col s12">
 	      					<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-	      					<input type="text" name="taskDuration" id="taskDuration">
+	      					<input type="number" class="validate" name="taskDuration" id="taskDuration" required>
 	      					<label for="taskDuration">Task Duration</label>
  						</div>
       				</div>

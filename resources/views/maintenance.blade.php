@@ -108,7 +108,7 @@
 		                <div class="row">
 		                	<h5 class="s12 center">Planting Distance(sq. meter)</h5>
 		                	<div class="input-field col s12">
-					          <input id="plantDist" type="number" class="validate" name="plantDist" required>
+					          <input id="plantDist" type="number" step="any" class="validate" name="plantDist" required>
 					          <label for="plantDist">Planting Distance</label>
 					        </div>
 		                </div>
