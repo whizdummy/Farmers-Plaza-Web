@@ -16,9 +16,9 @@ use Parse\ParseObject;
 Route::get('/', function() {
 	return view('landing');
 });
-Route::get('/maintenance', ['as'=>'maintenance', 'uses'=>'PageController@maintenance']);
+Route::get('/maintenance', ['middleware' => 'agri', 'uses'=>'PageController@maintenance']);
 
-Route::get('/tasks', 'TasksController@tasks');
+Route::get('/tasks', ['middleware' => 'agri', 'uses' => 'TasksController@tasks']);
 
 Route::post('/submitForm', 'PageController@submitForm');
 

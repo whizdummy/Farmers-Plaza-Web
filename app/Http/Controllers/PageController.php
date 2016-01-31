@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Parse\ParseObject;
 use Parse\ParseQuery;
 use Parse\ParseUser;
+use Parse\ParseException;
 
 use Illuminate\Http\Request;
 
@@ -149,10 +150,11 @@ public $strCropName;
 
         try{
             $user = ParseUser::logIn($request->input('userName'), $request->input('userPass'));
-            return redirect()->route('maintenance');
+            $request->session()->put('username', $request->input('userName'));
+            return redirect('maintenance');
         }
         catch (ParseException $e) {
-            return view('landing');
+            return redirect('/');
         }
 
     }
