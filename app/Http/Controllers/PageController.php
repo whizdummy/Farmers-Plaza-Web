@@ -126,6 +126,7 @@ public $strCropName;
         }
 
         $parseCrop->set("cropName",  $request->input('cropName'));
+        $parseCrop->set("price", $request->input('cropPrice'))
         $parseCrop->set("minPh", $request->input('minPh'));
         $parseCrop->set("maxPh", $request->input('maxPh'));
         $parseCrop->set("minMoisture", $request->input('minMoisture'));
