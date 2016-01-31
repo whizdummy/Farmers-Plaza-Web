@@ -41,6 +41,12 @@ class TasksController extends Controller
         $parseCropQuery->equalTo("cropName", $request->input('crop'));
         $crop = $parseCropQuery->first();
 
+        $parseQuery = new ParseQuery("Task");
+        $parseQuery->equalTo("taskDesc");
+        if ($parseQuery->count() > 0){
+            return redirect('/tasks');
+        }
+
         $parseTask->set("cropName", $crop);
         $parseTask->set("taskDesc", $request->input('taskName'));
         $parseTask->set("taskDuration", $request->input('taskDuration'));
