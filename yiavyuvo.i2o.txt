@@ -1,0 +1,59 @@
+﻿Merge branch 'master' of https://github.com/whizdummy/Farmers-Plaza-Web
+
+# Conflicts:
+#	resources/views/maintenance.blade.php
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 2 and 16 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   app/Http/Controllers/PageController.php
+#	modified:   app/Http/routes.php
+#	modified:   composer.lock
+#	modified:   config/parse.php
+#	modified:   resources/views/landing.blade.php
+#	modified:   resources/views/maintenance.blade.php
+#	modified:   resources/views/parent.blade.php
+#	new file:   resources/views/tasks.blade.php
+#	new file:   resources/views/test.blade.php
+#	modified:   vendor/composer/autoload_classmap.php
+#	modified:   vendor/composer/installed.json
+#	new file:   vendor/mtdowling/cron-expression/.editorconfig
+#	new file:   vendor/mtdowling/cron-expression/CHANGELOG.md
+#	modified:   vendor/mtdowling/cron-expression/README.md
+#	modified:   vendor/mtdowling/cron-expression/composer.json
+#	modified:   vendor/mtdowling/cron-expression/src/Cron/AbstractField.php
+#	modified:   vendor/mtdowling/cron-expression/src/Cron/CronExpression.php
+#	modified:   vendor/mtdowling/cron-expression/src/Cron/DayOfWeekField.php
+#	modified:   vendor/mtdowling/cron-expression/src/Cron/HoursField.php
+#	modified:   vendor/mtdowling/cron-expression/src/Cron/MinutesField.php
+#	modified:   vendor/mtdowling/cron-expression/tests/Cron/CronExpressionTest.php
+#	modified:   vendor/mtdowling/cron-expression/tests/Cron/HoursFieldTest.php
+#	modified:   vendor/mtdowling/cron-expression/tests/Cron/MonthFieldTest.php
+#	new file:   vendor/parse/php-sdk/src/Parse/ParseApp.php
+#	modified:   vendor/parse/php-sdk/src/Parse/ParseClient.php
+#	modified:   vendor/parse/php-sdk/src/Parse/ParseObject.php
+#	modified:   vendor/parse/php-sdk/tests/Parse/Helper.php
+#	new file:   vendor/parse/php-sdk/tests/Parse/ParseAppTest.php
+#	modified:   vendor/parse/php-sdk/tests/Parse/ParseObjectTest.php
+#	modified:   vendor/symfony/polyfill-php56/LICENSE
+#	modified:   vendor/symfony/polyfill-php56/README.md
+#	modified:   vendor/symfony/polyfill-php56/composer.json
+#	modified:   vendor/symfony/polyfill-util/LICENSE
+#	modified:   vendor/symfony/polyfill-util/README.md
+#	modified:   vendor/symfony/polyfill-util/TestListener.php
+#	modified:   vendor/symfony/polyfill-util/composer.json
+#
+

@@ -10,7 +10,7 @@
 		                <div class="row" id="cropParent">
 
 		                	<div class="input-field col s6">
-		                		<p>
+		                			<p>
 		                		     <input name="group1" type="radio" id="test1"  onclick="document.getElementById('newCropTxt').disabled = true; document.getElementById('cropSelect').removeAttribute(disabled);"/>
 		                		     <label for="test1">Choose crop type</label>
 		                		   </p>
