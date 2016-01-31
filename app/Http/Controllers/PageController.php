@@ -193,11 +193,10 @@ public $strCropName;
                 return redirect('maintenance');
             } 
 
-            return redirect('/logIn');
-            
+            return view('login')->with("message", "error");
         }
         catch (ParseException $e) {
-            return redirect('/logIn');
+            return view('/login')->with("message", "error");
         }
 
     }

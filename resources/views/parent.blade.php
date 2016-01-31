@@ -27,9 +27,9 @@
  		      	<li><a href="#" class="green-text">ABOUT</a></li>
 
  		      	@if(Session::get('username') != null)
- 		      		<li><a class="waves-effect waves-light btn green darken-4 white-text" href="{{URL::to('/logOut')}}">LOG OUT</a></li>
+ 		      		<li><a class="waves-effect waves-light btn green darken-4 white-text" href="{{URL::to('/logout')}}">LOG OUT</a></li>
  		      		@else 
- 		      			<li><a class="waves-effect waves-light btn green darken-4 white-text" href="{{URL::to('/logIn')}}">LOG IN</a></li>
+ 		      			<li><a class="waves-effect waves-light btn green darken-4 white-text" href="{{URL::to('/login')}}">LOG IN</a></li>
  		      	@endif
  		      </ul>
  		    </div>

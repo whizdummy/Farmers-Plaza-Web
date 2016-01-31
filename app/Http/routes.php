@@ -18,10 +18,10 @@ Route::get('/', function() {
 });
 
 Route::get('/login', function() {
-	return view('login');
+	return view('login')->with('message', "success");
 });
 
-Route::get('/logOut', 'PageController@logOut');
+Route::get('/logout', 'PageController@logOut');
 
 Route::get('/maintenance', ['middleware' => 'agri', 'uses'=>'PageController@maintenance']);
 
