@@ -36,6 +36,12 @@
 				          <input id="taskDurTxt" type="text" class="validate" name="cropName">
 				          <label for="taskDurTxt">Task Duration</label>
 				        </div>
+
+				        <div class="col s12 center">
+				        	<button class="btn waves-effect waves-light" type="submit" name="action">Submit
+				        	   <i class="material-icons right">send</i>
+				        	 </button>
+				        </div>
 	      		</div>
 	      		
 	      	</form>
