@@ -14,7 +14,11 @@ use Parse\ParseObject;
 
 // Route::get('/', 'PageController@index');
 Route::get('/', function() {
-	return view('landing')
+	return view('landing');
+});
+
+Route::get('/login', function() {
+	return view('login');
 });
 
 Route::get('/logOut', 'PageController@logOut');
@@ -32,4 +36,3 @@ Route::post('/addTaskCategory', 'TasksController@addTaskCategory');
 Route::post('/addTask', 'TasksController@addTask');
 
 Route::post('/assignTask', 'TasksController@assignTask');
-});
