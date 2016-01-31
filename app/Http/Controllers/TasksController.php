@@ -11,14 +11,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class PageController extends Controller
+class TasksController extends Controller
 {
     public function tasks(){
         $results = array();
         $object = array();
 
         $queryTaskCategory = new ParseQuery("TaskCategory");
-        $queryTaskCategory->select("taskCatDesc");
         $object = $queryTaskCategory->find();
         $results[0] = array();
         foreach ($object as $value) {
@@ -40,6 +39,8 @@ class PageController extends Controller
         foreach ($object as $value) {
             array_push($results[2], $value);
         }   
+
+        return view('tasks')->with("results", $results);
     }
 
     public function addTaskCategory(Request $request){
