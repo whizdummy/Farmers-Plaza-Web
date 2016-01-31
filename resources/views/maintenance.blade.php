@@ -1,8 +1,5 @@
 @extends('parent')
 @section('mainBody')
-	@if ($error != null)
-		<label>{{$error}}</label>
-	@endif
 		<div class="wrapper">
 		    <article class="main white mainArticle"> <!--START OF MAIN-->    
 		      <div class="row container">   

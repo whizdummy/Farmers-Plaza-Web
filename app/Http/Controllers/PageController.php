@@ -103,7 +103,7 @@ public $strCropName;
         $parseQuery->equalTo("cropName", $request->input('cropName'));
         if ($parseQuery->count() > 0){
 
-            return view('maintenance')->with('error', 'Crop already exists.');
+            return redirect('/maintenance');
 
         }
 
@@ -130,10 +130,19 @@ public $strCropName;
         }
         else {
             $cropTypeVar = $request->input('newcroptype');
-            $parseCropType = new ParseObject("CropType");
-            $parseCropType->set("cropTypeDesc", $cropTypeVar);
-            $parseCropType->save();
-            $parseCrop->set("cropType", $parseCropType);
+            $parseQuery = new ParseQuery("CropType");
+            $parseQuery->equalTo("cropTypeDesc", $cropTypeVar);
+            if ($parseQuery->count() > 0){
+
+                $cropType = $parseQuery->first();
+                $parseCrop->set("cropType", $cropType);
+
+            }else{
+                $parseCropType = new ParseObject("CropType");
+                $parseCropType->set("cropTypeDesc", $cropTypeVar);
+                $parseCropType->save();
+                $parseCrop->set("cropType", $parseCropType);
+            }
         }
 
 
@@ -146,10 +155,18 @@ public $strCropName;
         }
         else {
             $fertTypeVar = $request->input('newferttype');
-            $parseFertilizer = new ParseObject("Fertilizer");
-            $parseFertilizer->set("fertilizerDesc", $fertTypeVar);
-            $parseFertilizer->save();
-            $parseCrop->set("fertilizer", $parseFertilizer);
+
+            $parseQuery = new ParseQuery("Fertilizer");
+            $parseQuery->equalTo("fertilizerDesc", $fertTypeVar);
+            if ($parseQuery->count() > 0){
+                $fertilizer = $parseQuery->first();
+                $parseCrop->set("fertilizer", $fertilizer);
+            }else{
+                $parseFertilizer = new ParseObject("Fertilizer");
+                $parseFertilizer->set("fertilizerDesc", $fertTypeVar);
+                $parseFertilizer->save();
+                $parseCrop->set("fertilizer", $parseFertilizer);
+            }
         }
 
 
