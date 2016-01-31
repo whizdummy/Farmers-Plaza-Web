@@ -41,8 +41,6 @@ class TasksController extends Controller
             array_push($results[2], $value->get('taskDesc'));
         }   
 
-        var_dump($results);
-
         return view('tasks')->with("results", $results);
     }
 
@@ -64,18 +62,10 @@ class TasksController extends Controller
         $parseCropQuery->equalTo("cropName", $request->input('crop'));
         $crop = $parseCropQuery->first();
 
-        var_dump($taskCat);
-        var_dump($request->input('taskDuration'));
-
         $parseTask->set("cropName", $crop);
         $parseTask->set("taskCategory", $taskCat);
         $parseTask->set("taskDesc", $request->input('taskName'));
         $parseTask->set("taskDuration", $request->input('taskDuration'));
         $parseTask->save();
-
-
-
-        
-
     }
 }
