@@ -179,14 +179,25 @@ public $strCropName;
 
     public function verifyUser(Request $request){
         $user = new ParseUser();
+        $userQuery = ParseUser::query();
 
         try{
             $user = ParseUser::logIn($request->input('userName'), $request->input('userPass'));
-            $request->session()->put('username', $request->input('userName'));
-            return redirect('maintenance');
+            $userQuery->equalTo("isAdmin", true);
+            $currentUser = ParseUser::getCurrentUser();
+            $userQuery->equalTo("objectId", $currentUser->getObjectId());
+            $result = $userQuery->find();
+
+            if(count($result) > 0) {
+                $request->session()->put('username', $request->input('userName'));
+                return redirect('maintenance');
+            } 
+
+            return redirect('/logIn');
+            
         }
         catch (ParseException $e) {
-            return redirect('/');
+            return redirect('/logIn');
         }
 
     }
