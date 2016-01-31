@@ -98,7 +98,10 @@ public $strCropName;
         $parseFertilizer = null;
 
         if($request->input('newcroptype') == null || strcmp($request->input('newcroptype'), "") == 0){
-            $parseCrop->set("cropType", $request->input('cropType'));
+            $parseQuery = new ParseQuery("CropType");
+            $parseQuery->equalTo("cropTypeDesc", $request->input('cropType'));
+            $cropType = $parseQuery->first();
+            $parseCrop->set("cropType", $cropType);
         }
         else {
             $cropTypeVar = $request->input('newcroptype');
@@ -109,7 +112,10 @@ public $strCropName;
         }
 
         if($request->input('newferttype') == null || strcmp($request->input('newferttype'), "") == 0){
-            $parseCrop->set("fertilizer", $request->input('fertSelect'));
+            $parseQuery = new ParseQuery("Fertilizer");
+            $parseQuery->equalTo("fertilizerDesc", $request->input('fertSelect'));
+            $fertilizer = $parseQuery->first();
+            $parseCrop->set("fertilizer", $fertilizer);
         }
         else {
             $fertTypeVar = $request->input('newferttype');
