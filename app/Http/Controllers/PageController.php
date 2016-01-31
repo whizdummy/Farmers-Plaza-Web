@@ -42,8 +42,6 @@ class PageController extends Controller
             array_push($results[1], $fert->get('fertilizerDesc'));
         }
 
-        var_dump($results);
-
     	return view('maintenance')->with("results", $results);
     }
 
