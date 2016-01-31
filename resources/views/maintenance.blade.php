@@ -10,25 +10,18 @@
 		                <div class="row" id="cropParent">
 		                	<div class="input-field col s6">
 		                			<p>
-		                		     <input name="group1" type="radio" id="test1"  onclick="document.getElementById('newCropTxt').disabled = true; 
-		                		     														document.getElementById('cropSelect').removeAttribute(disabled);
-		                		     														document.getElementById('cropSelect').setAttribute(required);
-		                		     														document.getElementById('newCropTxt').removeAttribute(required);"/>
+		                		     <input name="group1" type="radio" id="test1"  onclick="chooseCropType()" checked="checked" />
 		                		     <label for="test1">Choose crop type</label>
 		                		   </p>
 		                		   <p>
-		                		     <input name="group1" type="radio" id="test2"  onclick="document.getElementById('cropSelect').disabled = true; 
-		                		     														document.getElementById('newCropTxt').disabled = false;
-		                		     														document.getElementById('newCropTxt').setAttribute(required);
-		                		     														document.getElementById('cropSelect').removeAttribute(required);
-		                		     														"/>
+		                		     <input name="group1" type="radio" id="test2"  onclick="newCropType()"/>
 		                		     <label for="test2">New crop type</label>
 		                		   </p>
 		                	</div>
 
 							<div class="input-field col s6" id="cropSelect">
 								<select name='cropType' id="cropSelect">
-								<option value='' disabled selected>Choose your option</option>
+								<option value='' disabled selected val="ID">Choose your option</option>
 								@foreach($results[0] as $result => $cropTypeResult)
 									<option value='{{$cropTypeResult}}'>{{$cropTypeResult}}</option>
 								@endforeach
@@ -128,7 +121,7 @@
 		                <div class="row">
 		                	<div class="input-field col s6">
 		                		<p>
-		                	     <input name="fertgroup" type="radio" id="test3"  onclick="document.getElementById('newFertTxt').disabled = true; 
+		                	     <input checked="checked" name="fertgroup" type="radio" id="test3"  onclick="document.getElementById('newFertTxt').disabled = true; 
 		                	     															document.getElementById('fertSelect').removeAttribute(disabled);
 		                	     															document.getElementById('fertSelect').setAttribute(required);
 		                		     														document.getElementById('newFertTxt').removeAttribute(required);"/>
@@ -211,6 +204,27 @@
 			$(document).ready(function() {
 			$('select').material_select();
 			});
+		</script>
+
+		<script type="text/javascript">
+		function chooseCropType(){
+			document.getElementById('newCropTxt').disabled = true; 
+			document.getElementById('cropSelect').removeAttribute(disabled);
+			document.getElementById('cropSelect').setAttribute(required);
+			document.getElementById('newCropTxt').removeAttribute(required);
+		}
+
+		function newCropType(){
+			document.getElementById('cropSelect').disabled = true; 
+			document.getElementById('newCropTxt').disabled = false;
+			document.getElementById('newCropTxt').setAttribute(required);
+			document.getElementById('cropSelect').removeAttribute(required);
+			
+			var opt = $("option[val=ID]"),
+			    html = $("<div>").append(opt.clone()).html();
+			html = html.replace(/\>/, ' selected="selected">');
+			opt.replaceWith(html);		
+		}
 		</script>
 
 @endsection
