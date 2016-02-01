@@ -28,7 +28,7 @@
 							</div>
 
 							<div class="input-field col s6">
-					          <input id="newCropTxt" type="text" class="validate" name="newcroptype">
+					          <input id="newCropTxt" type="text" class="validate" name="newcroptype" disabled>
 					          <label for="newCropTxt">New Crop Type</label>
 					        </div>
 
@@ -148,7 +148,7 @@
 							</div>
 
 							<div class="input-field col s6">
-					          <input id="newFertTxt" type="text" class="validate" name="newferttype">
+					          <input id="newFertTxt" type="text" class="validate" name="newferttype" disabled>
 					          <label for="newFertTxt">New Fertilizer Type</label>
 					        </div>
 
