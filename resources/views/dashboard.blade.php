@@ -12,8 +12,8 @@
 	            		
 	            	</div>
 	      	      <ul id="slide-out" class="side-nav">
-	      	        <li><a href="#!">View Farm</a></li>
-	      	        <li><a href="#!">View Crops</a></li>
+	      	        <li><a href="farm_dashboard">View Farm</a></li>
+	      	        <li><a href="crop_dashboard">View Crops</a></li>
 	      	      </ul>
 	            </nav> <!--START OF MAIN-->    
 	      @yield('article')

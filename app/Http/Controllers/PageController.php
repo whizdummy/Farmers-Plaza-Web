@@ -234,6 +234,25 @@ public $strCropName;
         return view('farm_dashboard')->with("farms",$farms);
     }
 
+    public function cropdashboard(){
+
+        $crops = array();
+        $parseQuery = new ParseQuery("Crop");
+        //$parseQuery->select("[farmName, farmSize, farmer]");
+        $results = $parseQuery->find();
+
+        foreach ($results as $key => $crop) {
+            $crops[$key] = array();
+            array_push($crops[$key], $crop->get('cropName'));
+            array_push($crops[$key], $crop->get('cropDesc'));
+            array_push($crops[$key], "P ".$crop->get('price'));
+            array_push($crops[$key], $crop->get('daysBeforeHarvest'));
+        }
+
+        return view('crops_dashboard')->with("crops",$crops);
+
+    }
+
     
 
 }
