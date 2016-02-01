@@ -18,6 +18,14 @@
 	      	        </thead>
 
 	      	        <tbody>
+
+						@foreach($farms as $farm)
+							<tr>
+								<td>{{ $farm[0] }}</td>
+								<td>{{ $farm[1] }}</td>
+								<td>{{ $farm[2] }}</td>
+							</tr>	
+						@endforeach
 	      	        
 	      	          <tr>
 	      	            <td>Alvin</td>

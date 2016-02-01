@@ -216,11 +216,22 @@ public $strCropName;
 
     public function farmdashboard(){
 
+        $farms = array();
         $parseQuery = new ParseQuery("Farm");
-        $result = $parseQuery->find();
+        //$parseQuery->select("[farmName, farmSize, farmer]");
+        $results = $parseQuery->find();
 
-        return view('farm_dashboard')->with("farms",$result);
+        foreach ($results as $key => $farm) {
+            $farms[$key] = array();
+            array_push($farms[$key], $farm->get('farmName'));
+            array_push($farms[$key], $farm->get('farmSize'));
+            $parseFarmer = $farm->get('farmer');
+            array_push($farms[$key], $parseFarmer->get('firstName') . $parseFarmer->get('lastName'));
+        }
 
+        return view('farm_dashboard')->with("farms",$farms);
     }
+
+    
 
 }
