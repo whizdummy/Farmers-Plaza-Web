@@ -23,7 +23,12 @@
  		    <div class="nav-wrapper" >
  		    <img src="{!! URL::asset('pictures/navIcon.png') !!}">
  		      <ul class="right hide-on-med-and-down" align="middle">
- 		      @yield('navbar')
+ 		      	<li><a href="#" class="green-text">ABOUT</a></li>
+ 		      	@if(Session::get('username') != null)
+ 		      		<li><a class="waves-effect waves-light btn green darken-4 white-text" href="{{URL::to('/logOut')}}">LOG OUT</a></li>
+ 		      		@else 
+ 		      			<li><a class="waves-effect waves-light btn green darken-4 white-text" href="{{URL::to('/logIn')}}">LOG IN</a></li>
+ 		      	@endif
  		      </ul>
  		    </div>
  		  </nav>

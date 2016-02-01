@@ -101,8 +101,4 @@
     <div class="parallax"><img src="{!! URL::asset('pictures/background3.jpg') !!}" alt="Unsplashed background img 3"></div>
   </div>
 @endsection
-
-@section('navbar')
-<li><a class="waves-effect waves-light btn green darken-4 white-text">LOG IN</a></li>
-@endsection
  

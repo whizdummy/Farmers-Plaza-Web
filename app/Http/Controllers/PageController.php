@@ -98,35 +98,13 @@ public $strCropName;
         $parseCropType = null;
         $parseFertilizer = null;
 
-        // Tawag mo nalang
-        if($request->input('newcroptype') == null || strcmp($request->input('newcroptype'), "") == 0){
-            $parseQuery = new ParseQuery("CropType");
-            $parseQuery->equalTo("cropTypeDesc", $request->input('cropType'));
-            $cropType = $parseQuery->first();
-            $parseCrop->set("cropType", $cropType);
-        }
-        else {
-            $cropTypeVar = $request->input('newcroptype');
-            $parseCropType = new ParseObject("CropType");
-            $parseCropType->set("cropTypeDesc", $cropTypeVar);
-            $parseCropType->save();
-            $parseCrop->set("cropType", $parseCropType);
-        }
+        
+        $parseQuery = new ParseQuery("Crop");
+        $parseQuery->equalTo("cropName", $request->input('cropName'));
+        if ($parseQuery->count() > 0){
 
+            return redirect('/maintenance');
 
-
-        if($request->input('newferttype') == null || strcmp($request->input('newferttype'), "") == 0){
-            $parseQuery = new ParseQuery("Fertilizer");
-            $parseQuery->equalTo("fertilizerDesc", $request->input('fertSelect'));
-            $fertilizer = $parseQuery->first();
-            $parseCrop->set("fertilizer", $fertilizer);
-        }
-        else {
-            $fertTypeVar = $request->input('newferttype');
-            $parseFertilizer = new ParseObject("Fertilizer");
-            $parseFertilizer->set("fertilizerDesc", $fertTypeVar);
-            $parseFertilizer->save();
-            $parseCrop->set("fertilizer", $parseFertilizer);
         }
 
         $parseCrop->set("cropName",  $request->input('cropName'));
@@ -142,6 +120,55 @@ public $strCropName;
         $parseCrop->set("plantingDistance", $request->input('plantingDist'));
         $parseCrop->set("fertilizerAmount", $request->input('fertAmt'));
         $parseCrop->set("season", $request->input('season'));
+
+        // Tawag mo nalang
+        if($request->input('newcroptype') == null || strcmp($request->input('newcroptype'), "") == 0){
+            $parseQuery = new ParseQuery("CropType");
+            $parseQuery->equalTo("cropTypeDesc", $request->input('cropType'));
+            $cropType = $parseQuery->first();
+            $parseCrop->set("cropType", $cropType);
+        }
+        else {
+            $cropTypeVar = $request->input('newcroptype');
+            $parseQuery = new ParseQuery("CropType");
+            $parseQuery->equalTo("cropTypeDesc", $cropTypeVar);
+            if ($parseQuery->count() > 0){
+
+                $cropType = $parseQuery->first();
+                $parseCrop->set("cropType", $cropType);
+
+            }else{
+                $parseCropType = new ParseObject("CropType");
+                $parseCropType->set("cropTypeDesc", $cropTypeVar);
+                $parseCropType->save();
+                $parseCrop->set("cropType", $parseCropType);
+            }
+        }
+
+
+
+        if($request->input('newferttype') == null || strcmp($request->input('newferttype'), "") == 0){
+            $parseQuery = new ParseQuery("Fertilizer");
+            $parseQuery->equalTo("fertilizerDesc", $request->input('fertSelect'));
+            $fertilizer = $parseQuery->first();
+            $parseCrop->set("fertilizer", $fertilizer);
+        }
+        else {
+            $fertTypeVar = $request->input('newferttype');
+
+            $parseQuery = new ParseQuery("Fertilizer");
+            $parseQuery->equalTo("fertilizerDesc", $fertTypeVar);
+            if ($parseQuery->count() > 0){
+                $fertilizer = $parseQuery->first();
+                $parseCrop->set("fertilizer", $fertilizer);
+            }else{
+                $parseFertilizer = new ParseObject("Fertilizer");
+                $parseFertilizer->set("fertilizerDesc", $fertTypeVar);
+                $parseFertilizer->save();
+                $parseCrop->set("fertilizer", $parseFertilizer);
+            }
+        }
+
 
         //task insertion
 
@@ -162,5 +189,12 @@ public $strCropName;
             return redirect('/');
         }
 
+    }
+
+    public function logOut(Request $request) {
+        \Session::forget('username');
+        ParseUser::logOut();
+
+        return redirect('/');
     }
 }

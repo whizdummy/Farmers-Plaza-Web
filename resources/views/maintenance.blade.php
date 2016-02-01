@@ -1,6 +1,5 @@
 @extends('parent')
 @section('mainBody')
-
 		<div class="wrapper">
 		    <article class="main white mainArticle"> <!--START OF MAIN-->    
 		      <div class="row container">   
@@ -227,8 +226,4 @@
 		}
 		</script>
 
-@endsection
-
-@section('navbar')
-<li><a class="waves-effect waves-light btn green darken-4 white-text">Log out</a></li>
 @endsection
