@@ -46,11 +46,29 @@
 					          <label for="cropName">Crop Name</label>
 					        </div>
 
-					        <h5 class="s12 center">Crop Price</h5>
+					        <h5 class="s12 center">Crop Description</h5>
 							<div class="input-field col s12" id="before">
-					          <input id="cropPrice" type="number" step="any" class="validate" name="cropPrice" required>
-					          <label for="cropPrice">Crop Price</label>
+					          <input id="cropName" type="text" class="validate" name="cropDesc" required>
+					          <label for="cropName">Crop Description</label>
 					        </div>
+
+					        <div class="row">
+			        	        <h5 class="col s6 center">Crop Days</h5>
+			        	        <h5 class="col s6 center">Crop Price</h5>
+
+			        			<div class="input-field col s6" id="before">
+			        	          <input id="cropPrice" type="number" step="any" class="validate" name="cropBeforeHarvest" required>
+			        	          <label for="cropPrice">Crop days before harvest</label>
+			        	        </div>
+
+			        	        
+			        			<div class="input-field col s6" id="before">
+			        	          <input id="cropPrice" type="number" step="any" class="validate" name="cropPrice" required>
+			        	          <label for="cropPrice">Crop Price</label>
+			        	        </div>
+					        </div>
+
+					        
 		                </div>
 
 		                <div class="row">

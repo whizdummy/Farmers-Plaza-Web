@@ -35,6 +35,12 @@
 	      					<input type="number" class="validate" name="taskDuration" id="taskDuration" required>
 	      					<label for="taskDuration">Task Duration</label>
  						</div>
+
+ 						<div class="input-field col s12">
+	      					<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+	      					<input type="number" class="validate" name="taskStart" id="taskStart" required>
+	      					<label for="taskDuration">Task Start</label>
+ 						</div>
       				</div>
       				
       				<div class="row">
