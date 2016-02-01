@@ -118,7 +118,7 @@ public $strCropName;
         $parseCrop->set("maxSunlight", $request->input('maxSunlight'));
         $parseCrop->set("minTemp", $request->input('minTemp'));
         $parseCrop->set("maxTemp", $request->input('maxTemp'));
-        $parseCrop->set("plantingDistance", $request->input('plantingDist'));
+        $parseCrop->set("plantingDistance", $request->input('plantDist'));
         $parseCrop->set("fertilizerAmount", $request->input('fertAmt'));
         $parseCrop->set("season", $request->input('season'));
         $parseCrop->set("cropDesc", $request->input('cropDesc'));
