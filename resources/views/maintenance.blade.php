@@ -52,21 +52,35 @@
 					          <label for="cropName">Crop Description</label>
 					        </div>
 
-					        <div class="row">
+					        <div class="file-field input-field col s6">
+					             <div class="btn">
+					               <span>Upload Picture</span>
+					               <input type="file" id="fileUpload">
+					             </div>
+					             <div class="file-path-wrapper">
+					               <input class="file-path validate" type="text">
+					             </div>
+					         </div>
+
+					         <div class="col s6">
+					         	 <img id="preview" src="#" alt="your image" / width="100" height="100">
+					         </div>
+
+					        <div class="col s12">
 			        	        <h5 class="col s6 center">Crop Days</h5>
 			        	        <h5 class="col s6 center">Crop Price</h5>
+			        	    </div>
+	        			<div class="input-field col s6" id="before">
+	        	          <input id="cropPrice" type="number" step="any" class="validate" name="cropBeforeHarvest" required>
+	        	          <label for="cropPrice">Crop days before harvest</label>
+	        	        </div>
 
-			        			<div class="input-field col s6" id="before">
-			        	          <input id="cropPrice" type="number" step="any" class="validate" name="cropBeforeHarvest" required>
-			        	          <label for="cropPrice">Crop days before harvest</label>
-			        	        </div>
-
-			        	        
-			        			<div class="input-field col s6" id="before">
-			        	          <input id="cropPrice" type="number" step="any" class="validate" name="cropPrice" required>
-			        	          <label for="cropPrice">Crop Price</label>
-			        	        </div>
-					        </div>
+	        	        
+	        			<div class="input-field col s6" id="before">
+	        	          <input id="cropPrice" type="number" step="any" class="validate" name="cropPrice" required>
+	        	          <label for="cropPrice">Crop Price</label>
+	        	        </div>
+					     
 
 					        
 		                </div>
@@ -250,6 +264,23 @@
 			html = html.replace(/\>/, ' selected="selected">');
 			opt.replaceWith(html);		
 		}
+
+		function readURL(input) {
+
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+
+		        reader.onload = function (e) {
+		            $('#preview').attr('src', e.target.result);
+		        }
+
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$("#fileUpload").change(function(){
+		    readURL(this);
+		});
 		</script>
 
 @endsection
