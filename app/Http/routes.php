@@ -14,7 +14,7 @@ use Parse\ParseObject;
 
 // Route::get('/', 'PageController@index');
 Route::get('/', function() {
-	return view('landing');
+	return view('farm_dashboard');
 });
 
 Route::get('/login', function() {
