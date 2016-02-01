@@ -225,7 +225,9 @@ public $strCropName;
             $farms[$key] = array();
             array_push($farms[$key], $farm->get('farmName'));
             array_push($farms[$key], $farm->get('farmSize'));
-            $parseFarmer = $farm->get('farmer');
+            $parseFarmer = $farm->fetch('farmer');
+            $farmerName = $parseFarmer->get('firstName') . $parseFarmer->get('lastName');
+            var_dump($parseFarmer->get('username'));
             array_push($farms[$key], $parseFarmer->get('firstName') . $parseFarmer->get('lastName'));
         }
 

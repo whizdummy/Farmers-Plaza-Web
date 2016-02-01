@@ -55,7 +55,7 @@
 					        <div class="file-field input-field col s6">
 					             <div class="btn">
 					               <span>Upload Picture</span>
-					               <input type="file" id="fileUpload">
+					               <input type="file" id="fileUpload" name="fileUpload">
 					             </div>
 					             <div class="file-path-wrapper">
 					               <input class="file-path validate" type="text">
