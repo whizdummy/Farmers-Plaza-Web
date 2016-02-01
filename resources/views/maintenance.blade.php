@@ -147,7 +147,7 @@
 								</select><label>Fertilizer</label>
 							</div>
 
-							<div class="input-field col s6">
+							<div class="input-field col s6 right">
 					          <input id="newFertTxt" type="text" class="validate" name="newferttype" disabled>
 					          <label for="newFertTxt">New Fertilizer Type</label>
 					        </div>
