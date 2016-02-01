@@ -55,3 +55,7 @@
 			});
 		</script>
 @endsection
+@section('navbar')
+<li><a href="#" class="green-text text-darken-4 ">ADD CROPS</a></li>
+<li class="active"><a href="#" class="green-text text-darken-4 ">ADD TASK</a></li>
+@endsection
