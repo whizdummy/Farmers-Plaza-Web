@@ -14,7 +14,7 @@ use Parse\ParseObject;
 
 // Route::get('/', 'PageController@index');
 Route::get('/', function() {
-	return view('login');
+	return view('landing');
 });
 Route::get('/maintenance', ['middleware' => 'agri', 'uses'=>'PageController@maintenance']);
 
