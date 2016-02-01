@@ -225,10 +225,10 @@ public $strCropName;
             $farms[$key] = array();
             array_push($farms[$key], $farm->get('farmName'));
             array_push($farms[$key], $farm->get('farmSize'));
-            $parseFarmer = $farm->fetch('farmer');
-            $farmerName = $parseFarmer->get('firstName') . $parseFarmer->get('lastName');
-            var_dump($parseFarmer->get('username'));
-            array_push($farms[$key], $parseFarmer->get('firstName') . $parseFarmer->get('lastName'));
+            $parseFarmer = $farm->get('farmer');
+            $farmer = $parseFarmer->fetch();
+            $farmerName = $farmer->get('firstName') ." ". $farmer->get('lastName');
+            array_push($farms[$key], $farmerName);
         }
 
         return view('farm_dashboard')->with("farms",$farms);
