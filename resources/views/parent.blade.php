@@ -12,6 +12,7 @@
  		<link rel="stylesheet" type="text/css" href="{!!URL::asset('css/materialize.css')!!}" media="screen,projection">
  		<link rel="stylesheet" type="text/css" href="{!!URL::asset('css/style.css')!!}" media="screen,projection">
  		<link rel="stylesheet" type="text/css" href="{!!URL::asset('css/mainStyle.css')!!}" media="screen,projection">
+ 		<link rel="shortcut icon" href="{!! URL::asset('pictures/logo.png') !!}" />
 
  		<!--  Scripts-->
  		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
