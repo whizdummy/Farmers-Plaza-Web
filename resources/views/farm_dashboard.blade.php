@@ -14,6 +14,7 @@
 	      	              <th data-field="id">Farm Name</th>
 	      	              <th data-field="name">Farm Size</th>
 	      	              <th data-field="price">Farm Owner</th>
+	      	              <th data-field="price">Farm Location</th>
 	      	          </tr>
 	      	        </thead>
 
@@ -24,6 +25,7 @@
 								<td>{{ $farm[0] }}</td>
 								<td>{{ $farm[1] }}</td>
 								<td>{{ $farm[2] }}</td>
+								<td>{{ $farm[3] }}</td>
 							</tr>	
 						@endforeach
 	      	        </tbody>

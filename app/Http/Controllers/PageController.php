@@ -231,6 +231,7 @@ public $strCropName;
             $farmer = $parseFarmer->fetch();
             $farmerName = $farmer->get('firstName') ." ". $farmer->get('lastName');
             array_push($farms[$key], $farmerName);
+            array_push($farms[$key], $farm->get('farmerAddress'));
         }
 
         return view('farm_dashboard')->with("farms",$farms);
