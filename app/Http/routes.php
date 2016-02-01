@@ -31,3 +31,4 @@ Route::post('/addTaskCategory', 'TasksController@addTaskCategory');
 Route::post('/addTask', 'TasksController@addTask');
 
 Route::post('/assignTask', 'TasksController@assignTask');
+});
