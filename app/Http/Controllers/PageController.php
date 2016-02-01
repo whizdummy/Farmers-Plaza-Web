@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Business\CropTypeBusiness;
 
 class PageController extends Controller
 {
@@ -49,6 +50,7 @@ class PageController extends Controller
     public function submitForm(Request $request){
         
         $parseCrop = new ParseObject("Crop");
+        $newCropType = new CropTypeBusiness();
         /*$crop->strCropType = $request->input('cropType');
         $crop->strCropName = $request->input('cropName');
         $crop->dblMinPh = $request->input('minPh');
@@ -96,6 +98,7 @@ public $strCropName;
         $parseCropType = null;
         $parseFertilizer = null;
 
+        // Tawag mo nalang
         if($request->input('newcroptype') == null || strcmp($request->input('newcroptype'), "") == 0){
             $parseQuery = new ParseQuery("CropType");
             $parseQuery->equalTo("cropTypeDesc", $request->input('cropType'));
@@ -109,6 +112,8 @@ public $strCropName;
             $parseCropType->save();
             $parseCrop->set("cropType", $parseCropType);
         }
+
+
 
         if($request->input('newferttype') == null || strcmp($request->input('newferttype'), "") == 0){
             $parseQuery = new ParseQuery("Fertilizer");
