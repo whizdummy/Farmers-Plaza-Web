@@ -213,4 +213,14 @@ public $strCropName;
 
         return redirect('/');
     }
+
+    public function farmdashboard(){
+
+        $parseQuery = new ParseQuery("Farm");
+        $result = $parseQuery->find();
+
+        return view('farm_dashboard')->with("farms",$result);
+
+    }
+
 }

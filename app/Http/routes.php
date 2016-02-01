@@ -21,6 +21,8 @@ Route::get('/login', function() {
 	return view('login');
 });
 
+Route::get('/farm_dashboard', 'PageController@farmdashboard');
+
 Route::get('/logout', 'PageController@logOut');
 
 Route::get('/maintenance', ['middleware' => 'agri', 'uses'=>'PageController@maintenance']);
