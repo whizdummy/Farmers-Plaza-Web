@@ -23,7 +23,8 @@
  		    <div class="nav-wrapper" >
  		    <img src="{!! URL::asset('pictures/navIcon.png') !!}">
  		      <ul class="right hide-on-med-and-down" align="middle">
- 		      <li><a href="#" class="green-text">ABOUT</a></li>
+ 		      @yield(navbar)
+ 		      	<li><a href="#" class="green-text">ABOUT</a></li>
  		      </ul>
  		    </div>
  		  </nav>
