@@ -228,3 +228,7 @@
 		</script>
 
 @endsection
+
+@section('navbar')
+<li><a class="waves-effect waves-light btn green darken-4 white-text">Log out</a></li>
+@endsection

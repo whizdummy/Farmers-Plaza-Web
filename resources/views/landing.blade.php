@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="wrapper">
-        <article class="main white"> <!--START OF MAIN-->    
+        <article class="main"> <!--START OF MAIN-->    
           <div class="row container">         
               
           </div>
@@ -102,7 +102,7 @@
   </div>
 @endsection
 
-@section(navbar)
+@section('navbar')
 <li><a class="waves-effect waves-light btn green darken-4 white-text">LOG IN</a></li>
 @endsection
  

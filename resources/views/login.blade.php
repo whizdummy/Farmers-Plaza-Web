@@ -1,12 +1,11 @@
 @extends('parent')
 @section('mainBody')
 	<div class="wrapper">
-	    <article class="main white mainArticle"> <!--START OF MAIN-->    
+	    <article class="main white mainArticle" style="margin-top: 20px;"> <!--START OF MAIN-->    
 	      <div class="row container">   
-	      <h1 class="green-text center">Log In</h1>
+	      <h1 class="green-text center text-darken-4">Log In</h1>
 	      	<form action="http://localhost:8000/verifyUser" method="POST" class="col s12">
 	      	      <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-	      	      <h4 class="col s12 center green-text text-darken-4">Log In</h4>
 
 	      	      <div class="row">
 	      	        <div class="input-field col s6">
@@ -22,8 +21,8 @@
 
 	      	      <div class="row">
 	      	
-	      	        <div class="col s6 center">
-	      	           <button class="btn waves-effect waves-light green" type="submit" name="action">LOG IN
+	      	        <div class="col s12 center">
+	      	           <button class="btn waves-effect waves-light green center" type="submit" name="action">LOG IN
 	      	           <i class="material-icons right">send</i>
 	      	         </button>           
 	      	        </div>                      
