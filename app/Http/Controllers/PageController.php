@@ -31,6 +31,7 @@ class PageController extends Controller
 
         $queryCropType = new ParseQuery("CropType");
         $queryCropType->select("cropTypeDesc");
+        $queryCropType->ascending("cropTypeDesc");
         $cropType = $queryCropType->find();
         $results[0] = array();           //QUERY ALL CROP TYPE PARSE OBJECTS
         foreach($cropType as $cType){
@@ -218,13 +219,14 @@ public $strCropName;
 
         $farms = array();
         $parseQuery = new ParseQuery("Farm");
+        $parseQuery->ascending("farmName");
         //$parseQuery->select("[farmName, farmSize, farmer]");
         $results = $parseQuery->find();
 
         foreach ($results as $key => $farm) {
             $farms[$key] = array();
             array_push($farms[$key], $farm->get('farmName'));
-            array_push($farms[$key], $farm->get('farmSize'));
+            array_push($farms[$key], $farm->get('farmSize') . " sq. m");
             $parseFarmer = $farm->get('farmer');
             $farmer = $parseFarmer->fetch();
             $farmerName = $farmer->get('firstName') ." ". $farmer->get('lastName');
@@ -238,6 +240,7 @@ public $strCropName;
 
         $crops = array();
         $parseQuery = new ParseQuery("Crop");
+        $parseQuery->ascending("cropName");
         //$parseQuery->select("[farmName, farmSize, farmer]");
         $results = $parseQuery->find();
 
@@ -246,7 +249,7 @@ public $strCropName;
             array_push($crops[$key], $crop->get('cropName'));
             array_push($crops[$key], $crop->get('cropDesc'));
             array_push($crops[$key], "P ".$crop->get('price'));
-            array_push($crops[$key], $crop->get('daysBeforeHarvest'));
+            array_push($crops[$key], $crop->get('daysBeforeHarvest') . " days");
         }
 
         return view('crops_dashboard')->with("crops",$crops);

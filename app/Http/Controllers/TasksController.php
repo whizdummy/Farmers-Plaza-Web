@@ -20,6 +20,7 @@ class TasksController extends Controller
 
         $queryCrop = new ParseQuery("Crop");
         $queryCrop->select("cropName");
+        $queryCrop->ascending("cropName");
         $object = $queryCrop->find();
         foreach ($object as $value) {
             array_push($results, $value->get('cropName'));
